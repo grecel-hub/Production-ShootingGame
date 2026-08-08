@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "cn.tuanjie.ai.generators": "file:D:/job/Unity/OverlookShootingGame/.codely-cli/extensions/TJGenerators/Packages/cn.tuanjie.ai.generators"
+  }
+}
