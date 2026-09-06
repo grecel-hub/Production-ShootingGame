@@ -1,0 +1,105 @@
+ManifestFileVersion: 0
+CRC: 2880429475
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 77448a8d915848a41274fcde7e5dec7d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f37cea496d9119e557ce15f4edbdbc6d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 77448a8d915848a41274fcde7e5dec7d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f5d880add0872e64ca7cef89de4bbbf5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 08c4bc176bec3f140a3e5c4ea07c1da5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 691ae3e604b3a6340ade1388d9546c83, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bbb72f95e3230274388256445e3acd01, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9afb398667c3bb248882a3d8f7cbb3af, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 96d332ab3dbfaaf40bdd9745ff0b19f0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8935e03361a14ec4b8edc872f76bc822, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 143
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 1773428102
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.MultiAimConstraintData
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.MultiParentConstraintData
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.RigLayer
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.TwoBoneIKConstraintData
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.Vector3Bool
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.WeightedTransform
+- AssemblyName: Unity.Animation.Rigging
+  ClassName: UnityEngine.Animations.Rigging.WeightedTransformArray
+Assets:
+- Assets/AssetBundlesSource/Prefabs/MuzzleFlashes/WFX_MF Spr RIFLE2.prefab
+- Assets/AssetBundlesSource/Prefabs/Weapon_01.prefab
+- Assets/AssetBundlesSource/Prefabs/KyleRobot.prefab
+- Assets/AssetBundlesSource/Prefabs/Bullets/Bullet.prefab
+Dependencies:
+- D:/job/Unity/OverlookShootingGame/AssetBundles/StandaloneWindows/anima
+- D:/job/Unity/OverlookShootingGame/AssetBundles/StandaloneWindows/material
+- D:/job/Unity/OverlookShootingGame/AssetBundles/StandaloneWindows/mesh
+- D:/job/Unity/OverlookShootingGame/AssetBundles/StandaloneWindows/model
