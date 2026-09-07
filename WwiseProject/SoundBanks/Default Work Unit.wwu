@@ -5,7 +5,8 @@
 			<ChildrenList>
 				<SoundBank Name="Footstep_Bank" ID="{EF8D0DC6-D590-4C51-BBAE-C9B55F322F02}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_Footstep" ID="{0934D7A8-65C9-43E0-AD64-CA1441A34989}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep_Walk" ID="{0934D7A8-65C9-43E0-AD64-CA1441A34989}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep_Run" ID="{ABB1BDE6-B49F-4CAD-A338-6E18A7EFA2B7}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d777cf113c5a8c45ae7a9b68f18a5cc
+guid: 6808651562904d24ea367015af1156cb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -19,13 +19,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'hold_gun_fastrun_forward_loop_279387' has import
+    animationImportWarnings: "\nClip 'hold_gun_fastrun_forward_end_279362' has import
       animation warnings that might lower retargeting quality:\nNote: Activate translation
       DOF on avatar to improve retargeting quality.\n\t'CC_Base_NeckTwist02' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'CC_Base_L_Forearm'
-      has translation animation that will be discarded.\n\t'CC_Base_L_Mid1' has scale
-      animation that will be discarded.\n\t'CC_Base_L_Thumb2' has scale animation
-      that will be discarded.\n"
+      has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -39,26 +37,26 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: hold_gun_fastrun_forward_loop
-      takeName: hold_gun_fastrun_forward_loop_279387
-      internalID: 4807229556732770399
+      name: hold_gun_fastrun_forward_end
+      takeName: hold_gun_fastrun_forward_end_279362
+      internalID: -7881739814215078984
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 171
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
-      heightFromFeet: 1
+      heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -558,13 +556,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: hold_gun_fastrun_forward_loop_279387(Clone)
+    - name: hold_gun_fastrun_forward_end_279362(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: root
-      parentName: hold_gun_fastrun_forward_loop_279387(Clone)
+      parentName: hold_gun_fastrun_forward_end_279362(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
@@ -1096,5 +1094,5 @@ ModelImporter:
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
-  assetBundleName: anima
+  assetBundleName: 
   assetBundleVariant: 

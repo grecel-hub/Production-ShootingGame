@@ -3,12 +3,23 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_Footstep" ID="{0934D7A8-65C9-43E0-AD64-CA1441A34989}">
+				<Event Name="Play_Footstep_Walk" ID="{0934D7A8-65C9-43E0-AD64-CA1441A34989}">
 					<ChildrenList>
 						<Action Name="" ID="{4135C12D-3F02-4581-B568-761F9809960B}" ShortID="409626222">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="RandomFootstep" ID="{D7186A25-D885-40C6-92F3-CEDD2E800091}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+									<ObjectRef Name="RandomFootstep_Walk" ID="{D7186A25-D885-40C6-92F3-CEDD2E800091}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Footstep_Run" ID="{ABB1BDE6-B49F-4CAD-A338-6E18A7EFA2B7}">
+					<ChildrenList>
+						<Action Name="" ID="{13722110-C905-4BA0-84A7-46483A1E7F83}" ShortID="747520758">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RandomFootstep_Run" ID="{954D394D-8A21-41C2-8EF9-BDA1265F493A}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -20,9 +20,9 @@ public class AssetBundleManager
         get
         {
 #if UNITY_IOS
-            retrun "IOS";
+            return "IOS";
 #elif UNITY_ANDROID
-            retrun "Android";
+            return "Android";
 #else
             return "StandaloneWindows";
 #endif

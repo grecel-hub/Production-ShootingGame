@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //子弹
@@ -9,8 +10,9 @@ public class Bullet : MonoBehaviour
     private float lifeTime = 0f;
     private float maxLifeTime = 3f;
 
+    [Header("Data Info")]
     [SerializeField] private float speed = 1;
-
+    [SerializeField] private int damage = 50;
 
     private void Awake()
     {
@@ -24,8 +26,12 @@ public class Bullet : MonoBehaviour
             BulletPool.instance.Return(this);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
+        other.gameObject.GetComponent<Enemy>()?.TakeDamage(damage);
+
+        Debug.Log($"命中 {other.gameObject.name} 造成 {damage} 伤害");
+
         BulletPool.instance.Return(this);
     }
 

@@ -1,46 +1,29 @@
 ManifestFileVersion: 0
-CRC: 4139213997
+CRC: 1904259949
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b740a78c5f412053f8afe448125b1149
+    Hash: fdd1952c6094349f170dc7487e97fcf7
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 55b69854d894b39b8bf8867b37da9d15
+    Hash: 147058da82bee871bbce28e472030442
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: b740a78c5f412053f8afe448125b1149
+    Hash: fdd1952c6094349f170dc7487e97fcf7
 HashAppended: 0
 ClassTypes:
-- Class: 1
-  Script: {instanceID: 0}
-- Class: 4
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
-- Class: 90
-  Script: {instanceID: 0}
 - Class: 91
-  Script: {instanceID: 0}
-- Class: 95
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Animations/Animators/PlayerAnimator.controller
-- Assets/Animations/Animations/PlayerNormal/Locomotion--Walk_N_Land.anim.fbx
-- Assets/Animations/Animations/PlayerNormal/Jump--InAir.anim.fbx
-- Assets/Animations/Animations/PlayerHoldGun/hold_gun_idle.fbx
+- Assets/Animations/Animations/PlayerNormal/normal_run.anim
+- Assets/Animations/Animations/PlayerHoldGun/hold_gun_fastrun_forward_loop.anim
 - Assets/Animations/Animations/PlayerNormal/normal_walk.anim
 - Assets/Animations/Animations/PlayerHoldGun/hold_gun_walk_reversed.anim
-- Assets/Animations/Animations/PlayerNormal/Locomotion--Run_S.anim.fbx
-- Assets/Animations/Animations/PlayerHoldGun/hold_gun_fastrun_forward_start_279410.fbx
-- Assets/Animations/Animations/PlayerNormal/Locomotion--Walk_N.anim.fbx
-- Assets/Animations/Animations/PlayerHoldGun/hold_gun_fastrun_forward_loop_279387.fbx
-- Assets/Animations/Animations/PlayerNormal/Locomotion--Run_N_Land.anim.fbx
-- Assets/Animations/Animations/PlayerHoldGun/hold_gun_fastrun_forward_end_279362.fbx
-- Assets/Animations/Animations/PlayerNormal/Locomotion--Run_N.anim.fbx
-- Assets/Animations/Animations/PlayerHoldGun/hold_gun_walk.fbx
-- Assets/Animations/Animations/PlayerNormal/Stand--Idle.anim.fbx
-- Assets/Animations/Animations/PlayerNormal/Jump--Jump.anim.fbx
+- Assets/Animations/Animations/PlayerHoldGun/hold_gun_idle.anim
+- Assets/Animations/Animations/PlayerNormal/Idle.anim
 - Assets/Animations/Animations/PlayerHoldGun/hold_gun_walk_loop.anim
 Dependencies: []

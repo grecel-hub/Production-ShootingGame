@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: c655c9833fd513847b3b2ccce93f6702
+guid: 348bf4dff3cdcd74bb7b7458f90c06c7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
   - first:
-      74: 3062299877480904481
-    second: Walk_N_Land
+      74: -8704978693243160924
+    second: Run_S
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk_N_Land
-      takeName: Walk_N_Land
+      name: Run_S
+      takeName: Run_S
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -49,19 +49,26 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.1691976
-        functionName: OnLand
+      - time: 0.4519231
+        functionName: OnFootstep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9519231
+        functionName: OnFootstep
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -929,5 +936,5 @@ ModelImporter:
   remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
-  assetBundleName: anima
+  assetBundleName: 
   assetBundleVariant: 

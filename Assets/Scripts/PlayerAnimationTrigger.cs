@@ -2,10 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//player动画触发
 public class PlayerAnimationTrigger : MonoBehaviour
 {
-    public void PlayFootStep()
+    [SerializeField] private Animator anim;
+
+    //行走触发脚步声事件
+    public void PlayFootStep_Walk()
     {
-        AudioManager.instance.PlayEvent("Play_Footstep", gameObject);
+        if (anim.GetFloat("Speed") < 0.1 || anim.GetFloat("Speed") > 1.5)
+            return;
+
+        AudioManager.instance.PlayEvent("Play_Footstep_Walk", gameObject);
+    }
+
+    //奔跑触发脚步声事件
+    public void PlayFootStep_Run()
+    {
+        if (anim.GetFloat("Speed") <= 1.5)
+            return;
+
+        AudioManager.instance.PlayEvent("Play_Footstep_Run", gameObject);
     }
 }

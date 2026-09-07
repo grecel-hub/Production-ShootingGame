@@ -1,6 +1,8 @@
 using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -25,25 +27,43 @@ public class AudioManager
 
     public async UniTask<bool> LoadBankForAssetBundle(string _abName, string _resName)
     {
-        TextAsset bankAsset = await AssetBundleManager.instance.LoadResAsync<TextAsset>(_abName, _resName);
-
-        if (bankAsset == null)
+        try
         {
-            Debug.Log(_resName + " bank文件加载失败");
+
+            TextAsset bankAsset = await AssetBundleManager.instance.LoadResAsync<TextAsset>(_abName, _resName);
+
+            if (bankAsset == null)
+            {
+                Debug.Log(_resName + " bank文件加载失败");
+                return false;
+            }
+
+            byte[] bankData = bankAsset.bytes;
+            GCHandle handle = GCHandle.Alloc(bankData, GCHandleType.Pinned);
+            IntPtr bankPtr = handle.AddrOfPinnedObject();
+
+            uint bankID;
+            AKRESULT result = AkSoundEngine.LoadBankMemoryCopy(
+                bankPtr,                          // 内存指针
+                (uint)bankData.Length,            // 数据大小
+                out bankID                        // 输出 Bank ID
+            );
+
+            handle.Free();
+
+            if (result != AKRESULT.AK_Success)
+            {
+                Debug.Log(_resName + " bank文件加载失败");
+                return false;
+            }
+            else
+                return true;
+            }
+        catch (Exception ex)
+        {
+            Debug.LogError($"加载{_resName}异常：{ex.Message}");
             return false;
         }
-
-        byte[] bankData = bankAsset.bytes;
-        uint bankID;
-        AKRESULT result = AkSoundEngine.LoadBank(bankData, out bankID);
-
-        if (result != AKRESULT.AK_Success)
-        {
-            Debug.Log(_resName + " bank文件加载失败");
-            return false;
-        }
-        else
-            return true;
 
     }
 

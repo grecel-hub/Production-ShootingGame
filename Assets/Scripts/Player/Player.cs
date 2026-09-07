@@ -2,7 +2,7 @@ using Cinemachine;
 using UnityEngine;
 
 //玩家
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     [Header("Camera Info")]
     private Camera cam;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public PlayerNormalState normalState { get; private set; }
 
 
-    private void Awake()
+    protected void Awake()
     {
         stateMachine = new PlayerStateMachine();
         controls = new PlayerControls();
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         normalState = new PlayerNormalState(this, stateMachine, controls);
     }
 
-    private void Start()
+    protected override void Start()
     {
         anim = GetComponent<Animator>();
         //rb = GetComponent<Rigidbody>();
@@ -55,14 +55,16 @@ public class Player : MonoBehaviour
         stateMachine.Initialize(standState, normalState);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         stateMachine.currentState.Update();
         stateMachine.currentCameraState.Update();
 
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         AimAngleLimit();
     }
