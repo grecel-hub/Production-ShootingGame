@@ -21,6 +21,8 @@ public class AudioManager
 
     public async UniTask InitAsync()
     {
+        Debug.Log("执行Bank文件加载");
+
         bool initLoaded = await LoadBankForAssetBundle("banks", "Init.bnk");
         bool footstepLoaded = await LoadBankForAssetBundle("banks", "Footstep_Bank.bnk");
     }

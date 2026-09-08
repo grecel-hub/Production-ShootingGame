@@ -1,5 +1,3 @@
-
-
 local HandGun = {
     duration = 0.1, --枪口复位时间
     startAngle = 0, --当前后坐力角度

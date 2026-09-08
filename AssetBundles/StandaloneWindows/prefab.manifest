@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2880429475
+CRC: 1024463015
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 77448a8d915848a41274fcde7e5dec7d
+    Hash: ca1b476b88dc8fe7c64f2ac69255e596
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f37cea496d9119e557ce15f4edbdbc6d
+    Hash: b5051b7407409c5863e158d601c2b714
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 77448a8d915848a41274fcde7e5dec7d
+    Hash: ca1b476b88dc8fe7c64f2ac69255e596
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -47,6 +47,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
@@ -54,6 +56,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 08c4bc176bec3f140a3e5c4ea07c1da5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 691ae3e604b3a6340ade1388d9546c83, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2810dce2fe3677541a317269e4b51d77, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: bbb72f95e3230274388256445e3acd01, type: 3}
 - Class: 114
@@ -66,11 +70,17 @@ ClassTypes:
   Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 134
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
 - Class: 137
   Script: {instanceID: 0}
 - Class: 143
+  Script: {instanceID: 0}
+- Class: 144
   Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
@@ -96,6 +106,7 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/AssetBundlesSource/Prefabs/MuzzleFlashes/WFX_MF Spr RIFLE2.prefab
 - Assets/AssetBundlesSource/Prefabs/Weapon_01.prefab
+- Assets/AssetBundlesSource/Prefabs/Bullets/WFX_BImpact Metal.prefab
 - Assets/AssetBundlesSource/Prefabs/KyleRobot.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/Bullet.prefab
 Dependencies:

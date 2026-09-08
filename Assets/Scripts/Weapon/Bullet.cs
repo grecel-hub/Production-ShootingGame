@@ -10,13 +10,21 @@ public class Bullet : MonoBehaviour
     private float lifeTime = 0f;
     private float maxLifeTime = 3f;
 
-    [Header("Data Info")]
-    [SerializeField] private float speed = 1;
-    [SerializeField] private int damage = 50;
+    private float speed;
+
+    [SerializeField] private GameObject bulletMesh;
+    [SerializeField] private GameObject bulletImpact;
+
+    private ShootController shootController;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        shootController = new ShootController();
+    }
+
+    private void Start()
+    {
     }
 
     private void Update()
@@ -28,16 +36,30 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Enemy>()?.TakeDamage(damage);
+        if (other.GetComponentInParent<Entity>())
+        {
+            Debug.Log("目标layer:" + other.gameObject.layer);
+            shootController.DoDamage(other.GetComponent<Entity>(), other.gameObject.layer);
+            
+        }
 
-        Debug.Log($"命中 {other.gameObject.name} 造成 {damage} 伤害");
 
-        BulletPool.instance.Return(this);
+
+        
+
+
+        rb.isKinematic = true;
+        bulletMesh.SetActive(false);
+        bulletImpact.SetActive(true);
+
+        StartCoroutine(Return());
     }
 
     //初始化子弹
     public void Init(Vector3 direction)
     {
+        speed = LuaManager.instance.bulletTab.Get<float>("speed");
+
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.velocity = direction * speed;
@@ -45,5 +67,16 @@ public class Bullet : MonoBehaviour
         lifeTime = 0f;
     }
 
+    public IEnumerator Return()
+    {
+        yield return new WaitForSeconds(3);
+
+        rb.isKinematic = false;
+        bulletMesh.SetActive(true);
+        bulletImpact.SetActive(false);
+
+
+        BulletPool.instance.Return(this);
+    }
     
 }

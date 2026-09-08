@@ -16,6 +16,7 @@ public class GameRoot : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("初始化manager脚本");
         LuaManager.instance.Start();
         AudioManager.instance.InitAsync().Forget();
     }

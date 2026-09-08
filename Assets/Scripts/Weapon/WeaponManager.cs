@@ -151,21 +151,20 @@ public class WeaponManager : MonoBehaviour
         ammunitionUI.Show();
     }
 
-    //手枪后坐力控制
+    //后坐力控制
     public IEnumerator SpineBoneRecoil(Transform spineBone, Vector3 vector)
     {
-        isRecoiling = true;
-
         Quaternion baseRot;
         Quaternion offset;
 
         float elapsed = 0f;
 
+        //使用Lua计算手枪后坐力
         while (elapsed < LuaManager.instance.handGunTab.Get<float>("duration"))
         {
             elapsed += Time.deltaTime;
 
-            currentRecoil = LuaManager.instance.getHandGunRecoil(elapsed); //使用Lua计算后坐力
+            currentRecoil = LuaManager.instance.getHandGunRecoil(elapsed); 
 
             baseRot = spineBone.localRotation;
             offset = Quaternion.AngleAxis(currentRecoil, vector);
@@ -173,8 +172,6 @@ public class WeaponManager : MonoBehaviour
 
             yield return null;
         }
-
-        isRecoiling = false;
     }
 
     //武器攻击

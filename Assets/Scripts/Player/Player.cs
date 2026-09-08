@@ -5,27 +5,21 @@ using UnityEngine;
 public class Player : Entity
 {
     [Header("Camera Info")]
-    private Camera cam;
     public CinemachineFreeLook freeLook;
     public Transform camFollow;
     public Transform aimTarget;
     public GameObject crosshair;
     [SerializeField] private Transform aimStartTarget;
     [SerializeField] private LayerMask aimMask;
+    private Camera cam;
     private Vector3 aimPosition;
 
-
-    public CharacterController character;
     public WeaponManager weaponManager { get; private set; }
 
-    private Transform playerTransform;
-
-    public PlayerStateMachine stateMachine { get; private set; }
     public PlayerControls controls { get; private set; }
 
-    public Animator anim { get; private set; }
-
     //状态
+    public PlayerStateMachine stateMachine { get; private set; }
     public PlayerStandState standState { get; private set; }
     public PlayerAimState aimState { get; private set; }
     public PlayerNormalState normalState { get; private set; }
@@ -43,14 +37,11 @@ public class Player : Entity
 
     protected override void Start()
     {
-        anim = GetComponent<Animator>();
-        //rb = GetComponent<Rigidbody>();
+        base.Start();
+
         cam = Camera.main;
 
         weaponManager = GetComponent<WeaponManager>();
-        character = GetComponent<CharacterController>();
-
-        playerTransform = transform;
 
         stateMachine.Initialize(standState, normalState);
     }
@@ -95,7 +86,7 @@ public class Player : Entity
         aimPosition = GetShootTargetPoint();
         aimPosition.y = 0f;
 
-        Vector3 playerPosition = playerTransform.position;
+        Vector3 playerPosition = transform.position;
         playerPosition.y = 0f;
 
         Vector3 aimStartPosition = aimStartTarget.position;

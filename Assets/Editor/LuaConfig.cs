@@ -8,6 +8,6 @@ public static class LuaConfig
     public static List<Type> CSharpCallLua = new List<Type>()
     {
         typeof(Func<float, float>),
-        
+        typeof(Func<int, int>)
     };
 }

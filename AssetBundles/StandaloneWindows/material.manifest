@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 692014676
+CRC: 1213923414
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dbcb95dcf8d22019663854a8434cd2e0
+    Hash: 2662cb8ed5bd84bbc8462d660ad6c9a1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b30fce1a9ad74efb72be6c308c56e365
+    Hash: 4f350b07989618aa231a92571572fa53
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: dbcb95dcf8d22019663854a8434cd2e0
+    Hash: 2662cb8ed5bd84bbc8462d660ad6c9a1
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -18,10 +18,16 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 134
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/AssetBundlesSource/PhysicMaterials/PlayerFrictionless.physicMaterial
+- Assets/JMO Assets/WarFX/Desktop/Materials/Misc/WFX_M_GlowCircle Add.mat
+- Assets/JMO Assets/WarFX/Desktop/Materials/Impacts/WFX_M_Sparks Metal.mat
 - Assets/JMO Assets/WarFX/Desktop/Materials/MuzzleFlashes/WFX_M_MF Glow.mat
 - Assets/JMO Assets/WarFX/Desktop/Materials/MuzzleFlashes/WFX_M_MF Sparks RIFLE2.mat
+- Assets/JMO Assets/WarFX/Desktop/Textures/Misc/WFX_T_Sparks Metal A8.png
 - Assets/AssetBundlesSource/Materials/New Material.mat
 - Assets/AssetBundlesSource/Materials/KyleRobot.mat
 - Assets/JMO Assets/WarFX/Desktop/Materials/MuzzleFlashes/WFX_M_MF Side RIFLE2.mat

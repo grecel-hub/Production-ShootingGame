@@ -97,8 +97,6 @@ public class PlayerStandState : PlayerState
         camForward.y = 0f;
         camRight.y = 0f;
 
-        Debug.Log(isAim);
-
         if (isAim)
             playerMovement = camForward.normalized;
         else

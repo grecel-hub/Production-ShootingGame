@@ -17,5 +17,13 @@ public class ShootController
         bullet.Init(shootDirection);
     }
 
-    
+    public void DoDamage(Entity entity, int layerMask)
+    {
+        int damage = LuaManager.instance.getDamage(layerMask);
+
+        entity.TakeDamage(damage);
+
+        Debug.Log($"命中 {entity.gameObject.name} 造成 {damage} 伤害");
+    }
+
 }

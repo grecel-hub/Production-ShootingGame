@@ -15,11 +15,11 @@ TagManager:
   - Player
   - Gun
   - Enemy
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Dead
+  - Hixbox_Head
+  - Hixbox_Torso
+  - Hixbox_Limbs
+  - Bullet
   - 
   - 
   - 
