@@ -25,6 +25,7 @@ public class AudioManager
 
         bool initLoaded = await LoadBankForAssetBundle("banks", "Init.bnk");
         bool footstepLoaded = await LoadBankForAssetBundle("banks", "Footstep_Bank.bnk");
+        bool gunLoaded = await LoadBankForAssetBundle("banks", "Gun_Bank.bnk");
     }
 
     public async UniTask<bool> LoadBankForAssetBundle(string _abName, string _resName)

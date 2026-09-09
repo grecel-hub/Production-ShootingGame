@@ -10,7 +10,7 @@ public class Entity : MonoBehaviour
     public Rigidbody[] rbs { get; protected set; }
 
 
-    protected int health = 100;
+    protected int health = 1000;
 
     public bool isDead;
     public bool canDie = true;

@@ -36,17 +36,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<Entity>())
+        Entity entity = other.GetComponentInParent<Entity>();
+
+        if (entity)
         {
             Debug.Log("目标layer:" + other.gameObject.layer);
-            shootController.DoDamage(other.GetComponent<Entity>(), other.gameObject.layer);
+            shootController.DoDamage(entity, other.gameObject.layer);
             
         }
-
-
-
-        
-
 
         rb.isKinematic = true;
         bulletMesh.SetActive(false);

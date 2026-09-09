@@ -15,6 +15,8 @@ public class ShootController
         bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
 
         bullet.Init(shootDirection);
+
+        AudioManager.instance.PlayEvent("Play_Handgun_Fire", gunTransform.gameObject);
     }
 
     public void DoDamage(Entity entity, int layerMask)

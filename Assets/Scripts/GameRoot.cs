@@ -19,11 +19,15 @@ public class GameRoot : MonoBehaviour
         Debug.Log("初始化manager脚本");
         LuaManager.instance.Start();
         AudioManager.instance.InitAsync().Forget();
+
+        Cursor.visible = false;
     }
 
     private void OnDestroy()
     {
         LuaManager.instance.OnDestroy();
         AssetBundleManager.instance.ClearAll();
+
+        Cursor.visible = true;
     }
 }

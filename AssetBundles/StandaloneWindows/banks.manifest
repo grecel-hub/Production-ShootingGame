@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2809272103
+CRC: 3440676986
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 56112bf7af20b2a7964318a058986adf
+    Hash: 40291b8c654c912c0398c40482f0e638
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 56112bf7af20b2a7964318a058986adf
+    Hash: 40291b8c654c912c0398c40482f0e638
 HashAppended: 0
 ClassTypes:
 - Class: 49
@@ -18,4 +18,5 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundlesSource/Banks/Init.bnk.bytes
 - Assets/AssetBundlesSource/Banks/Footstep_Bank.bnk.bytes
+- Assets/AssetBundlesSource/Banks/Gun_Bank.bnk.bytes
 Dependencies: []

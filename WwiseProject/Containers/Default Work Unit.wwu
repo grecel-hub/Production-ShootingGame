@@ -496,6 +496,28 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="hangun_shoot" ID="{24F887E9-87C8-47ED-A403-71FC0692A71A}" ShortID="169592518">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="hangun_shoot" ID="{99863CE3-FC53-4CF8-A812-CC5BEEE7DB35}">
+							<Language>SFX</Language>
+							<AudioFile>hangun_shoot.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="372194593"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="hangun_shoot" ID="{99863CE3-FC53-4CF8-A812-CC5BEEE7DB35}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</Containers>

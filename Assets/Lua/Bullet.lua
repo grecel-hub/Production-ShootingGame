@@ -1,5 +1,5 @@
 local Bullet = {
-    speed = 10,
+    speed = 5,
     headDamage = 100,
     torsoDamage = 70,
     limbsDamage = 30

@@ -71,11 +71,15 @@ public class Player : Entity
         if (Physics.Raycast(ray, out RaycastHit hit, 1000f, aimMask))
         {
             targetPoint = hit.point;
+
+            Debug.Log(hit.collider.gameObject.name + " " + hit.collider.gameObject.layer);
         }
         else
         {
             targetPoint = ray.GetPoint(100f);
         }
+
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
 
         return targetPoint;
     }
