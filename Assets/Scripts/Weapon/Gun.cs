@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GunType
+{
+    Short,
+    Long
+}
+
 //枪
 public class Gun : MonoBehaviour
 {
+    protected GunType gunType;
+
     [SerializeField] protected Transform muzzleTransform;
     [SerializeField] protected int maxMagazineSize = 7;
 
@@ -74,5 +82,10 @@ public class Gun : MonoBehaviour
     public virtual (int x, int y) GetMagazineSize()
     {
         return (currentMagazineSize, maxMagazineSize);
+    }
+
+    public GunType GetGunType()
+    {
+        return gunType;
     }
 }

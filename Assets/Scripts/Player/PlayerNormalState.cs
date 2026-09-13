@@ -41,7 +41,9 @@ public class PlayerNormalState : PlayerCameraState
 
     public void GetPlayerPickInput(InputAction.CallbackContext ctx)
     {
-        if (player.weaponManager.GetGun() == null) return;
-        player.weaponManager.SwitchGun(player.weaponManager.GetGun());
+        if (player.weaponManager.GetPickGun() == null) return;
+
+        player.weaponManager.SwitchGun(player.weaponManager.GetPickGun());
+
     }
 }

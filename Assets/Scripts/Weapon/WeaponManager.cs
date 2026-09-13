@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Transform lHandle;
     private float weaponAimElapsed;
     private bool isAim;
+    private bool isHoldGun;
 
     [Header("Recoil Info")]
     [SerializeField] private Transform aimTarget;
@@ -25,7 +26,6 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Transform handle;
     [SerializeField] private AmmunitionUI ammunitionUI;
     public Gun currentHaveGun;
-
 
     private Camera cam;
     private float currentRecoil = 0;
@@ -45,11 +45,18 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        LeftHandIkWait(isAim);
-        GetGun();
+        GetPickGun();
 
-        if (currentHaveGun != null) 
+        LeftHandIkWait(isHoldGun);
+        RightHandIkWait(isAim);
+
+        if (currentHaveGun != null)
+        {
+            isHoldGun = true;
+
             ammunitionUI.SetAmmunitionText(currentHaveGun.GetMagazineSize());
+        }
+
     }
 
     private void FixedUpdate()
@@ -68,24 +75,8 @@ public class WeaponManager : MonoBehaviour
     }
 
     //准星获取要拾取的枪支
-    public Gun GetGun()
+    public Gun GetPickGun()
     {
-        /*Transform gunTransform = null;
-        Gun gun = null;
-
-        Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f);
-        Ray ray = cam.ScreenPointToRay(screenCenter);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 10f, gunMask))
-        {
-            gunTransform = hit.transform.root;
-            gun = gunTransform.GetComponent<Gun>();
-
-            Debug.Log(gunTransform.name);
-        }
-
-        return gun;*/
-
         float pickUpRadius = 2.5f; // 角色的“手臂长度”范围
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, pickUpRadius, gunMask);
 
@@ -150,6 +141,7 @@ public class WeaponManager : MonoBehaviour
 
         ammunitionUI.Show();
     }
+
 
     //后坐力控制
     public IEnumerator SpineBoneRecoil(Transform spineBone, Vector3 vector)
@@ -216,7 +208,26 @@ public class WeaponManager : MonoBehaviour
     }
 
     //左手IK吸附枪托
-    private void LeftHandIkWait(bool isAim)
+    private void LeftHandIkWait(bool isHoldGun)
+    {
+        if (isHoldGun)
+        {
+            weaponAimElapsed += Time.deltaTime;
+
+            if (weaponAimElapsed >= 0.2f)
+            {
+                leftHandIk.weight = 1;
+            }
+        }
+        else
+        {
+            leftHandIk.weight = 0;
+            weaponAimElapsed = 0;
+        }
+    }
+
+    //右手IK吸附
+    private void RightHandIkWait(bool isAim)
     {
         if (isAim)
         {
@@ -225,14 +236,13 @@ public class WeaponManager : MonoBehaviour
             if (weaponAimElapsed >= 0.2f)
             {
                 armConstraint.weight = 1;
-                leftHandIk.weight = 1;
             }
         }
         else
         {
             armConstraint.weight = 0;
-            leftHandIk.weight = 0;
-            weaponAimElapsed = 0;
         }
     }
+
+
 }

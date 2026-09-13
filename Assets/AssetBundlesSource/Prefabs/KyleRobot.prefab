@@ -5028,7 +5028,7 @@ MonoBehaviour:
   aimStartTarget: {fileID: 7133750032158786673}
   aimMask:
     serializedVersion: 2
-    m_Bits: 407
+    m_Bits: 7555
 --- !u!114 &7250518677379600021
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using Assets.Scripts.Player;
 using Cinemachine;
 using UnityEngine;
 
@@ -20,7 +21,8 @@ public class Player : Entity
 
     //状态
     public PlayerStateMachine stateMachine { get; private set; }
-    public PlayerStandState standState { get; private set; }
+    public PlayerNoGunState noGunState { get; private set; }
+    public PlayerHoldShortGunState holdShortGunState { get; private set; }
     public PlayerAimState aimState { get; private set; }
     public PlayerNormalState normalState { get; private set; }
 
@@ -30,7 +32,8 @@ public class Player : Entity
         stateMachine = new PlayerStateMachine();
         controls = new PlayerControls();
 
-        standState = new PlayerStandState(this, stateMachine, controls);
+        noGunState = new PlayerNoGunState(this, stateMachine, controls);
+        holdShortGunState = new PlayerHoldShortGunState(this, stateMachine, controls);
         aimState = new PlayerAimState(this, stateMachine, controls);
         normalState = new PlayerNormalState(this, stateMachine, controls);
     }
@@ -43,7 +46,7 @@ public class Player : Entity
 
         weaponManager = GetComponent<WeaponManager>();
 
-        stateMachine.Initialize(standState, normalState);
+        stateMachine.Initialize(noGunState, normalState);
     }
 
     protected override void Update()
@@ -107,7 +110,4 @@ public class Player : Entity
 
         aimTarget.position = Vector3.Lerp(aimTarget.position, GetShootTargetPoint(), 1f);
     }
-
-
-
 }

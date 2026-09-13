@@ -8,6 +8,8 @@ public class Handgun : Gun
     protected override void Start()
     {
         base.Start();
+
+        gunType = GunType.Short;
     }
 
     protected override void Update()

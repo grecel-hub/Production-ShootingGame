@@ -66,7 +66,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: hold_gun_idle
+      name: hold_gun_aim
       takeName: Armature|hold_gun_idle
       internalID: 2821252093863436220
       firstFrame: 0

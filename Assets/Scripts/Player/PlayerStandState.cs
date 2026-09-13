@@ -6,17 +6,16 @@ using UnityEngine.InputSystem;
 public class PlayerStandState : PlayerState
 {
     [Header("MoveInfo")]
-    private bool isRuning;
-    private Vector2 playerInputVec;
-    private Vector3 playerMovement;
-    private float currentSpeed;
-    private float targetSpeed;
-    private float moveSpeed = 2;
-
-    private float rotaSpeed = 1000;
-    private float backSpeed = -1f;
-    private float walkSpeed = 1.5f;
-    private float runSpeed = 3f;
+    protected bool isRuning;
+    protected Vector2 playerInputVec;
+    protected Vector3 playerMovement;
+    protected float currentSpeed;
+    protected float targetSpeed;
+    protected float moveSpeed = 2;
+    protected float rotaSpeed = 1000;
+    protected float backSpeed = -1f;
+    protected float walkSpeed = 1.5f;
+    protected float runSpeed = 3f;
 
 
     public PlayerStandState(Player _player, PlayerStateMachine _stateMachine, PlayerControls _controls) : base(_player, _stateMachine, _controls)
@@ -36,7 +35,7 @@ public class PlayerStandState : PlayerState
         controls.Player.Run.performed += GetPlayerRunInput;
         controls.Player.Run.canceled += EndPlayerRun => isRuning = false;
 
-        controls.Player.Fire.started += GetPlayerFireInput;
+        
     }
 
     public override void Exit()
@@ -51,7 +50,7 @@ public class PlayerStandState : PlayerState
         controls.Player.Run.performed -= GetPlayerRunInput;
         controls.Player.Run.canceled -= EndPlayerRun => isRuning = false;
 
-        controls.Player.Fire.started -= GetPlayerFireInput;
+
     }
 
     public override void Update()
@@ -64,6 +63,8 @@ public class PlayerStandState : PlayerState
             MovePlayer();
         else
             CharacterMovePlayer();
+
+        
     }
 
     //角色移动 --W,A,S,D
@@ -78,15 +79,6 @@ public class PlayerStandState : PlayerState
         if (playerInputVec != null && !isAim)
             isRuning = true;
 
-    }
-
-    //武器开火 --左键
-    public void GetPlayerFireInput(InputAction.CallbackContext ctx)
-    {
-        if (isRuning || player.weaponManager.currentHaveGun == null)
-            return;
-
-        player.weaponManager.WeaponFire();
     }
 
     //角色旋转
