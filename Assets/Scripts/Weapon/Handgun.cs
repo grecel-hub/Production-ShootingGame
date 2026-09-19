@@ -25,9 +25,9 @@ public class Handgun : Gun
     }
 
     //换弹
-    public override void Reload()
+    public override void Reload(bool isReloading)
     {
-        base.Reload();
+        base.Reload(isReloading);
     }
 
 }

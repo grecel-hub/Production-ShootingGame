@@ -17,6 +17,8 @@ namespace Assets.Scripts.Player
             anim.SetBool("HoldShortGun", true);
 
             controls.Player.Fire.started += GetPlayerFireInput;
+            controls.Player.Reload.started += GetPlayerReloadInput;
+
         }
 
         public override void Update()
@@ -31,6 +33,7 @@ namespace Assets.Scripts.Player
             anim.SetBool("HoldShortGun", false);
 
             controls.Player.Fire.started -= GetPlayerFireInput;
+            controls.Player.Reload.started -= GetPlayerReloadInput;
         }
 
         //武器开火 --左键
@@ -40,6 +43,12 @@ namespace Assets.Scripts.Player
                 return;
 
             player.weaponManager.WeaponFire();
+        }
+
+        //武器换弹 --R
+        public void GetPlayerReloadInput(InputAction.CallbackContext ctx)
+        {
+            player.weaponManager.Reload();
         }
     }
 }

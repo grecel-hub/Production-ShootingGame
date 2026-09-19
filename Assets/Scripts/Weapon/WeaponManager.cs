@@ -12,6 +12,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private MultiAimConstraint handConstraint;
     [SerializeField] private TwoBoneIKConstraint leftHandIk;
     [SerializeField] private Transform lHandle;
+    public bool canLeftIK;
     private float weaponAimElapsed;
     private bool isAim;
     private bool isHoldGun;
@@ -26,6 +27,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Transform handle;
     [SerializeField] private AmmunitionUI ammunitionUI;
     public Gun currentHaveGun;
+    public bool isReloading;
+    private Transform startLHandle;
+
 
     private Camera cam;
     private float currentRecoil = 0;
@@ -47,7 +51,9 @@ public class WeaponManager : MonoBehaviour
     {
         GetPickGun();
 
-        LeftHandIkWait(isHoldGun);
+        if (canLeftIK)
+            LeftHandIkWait(isHoldGun);
+
         RightHandIkWait(isAim);
 
         if (currentHaveGun != null)
@@ -123,6 +129,8 @@ public class WeaponManager : MonoBehaviour
         gun.transform.localPosition = Vector3.zero;
         gun.transform.localRotation = Quaternion.identity;
 
+        gun.GetComponent<Rigidbody>().isKinematic = true;
+
         currentHaveGun = gun;
     }
 
@@ -136,6 +144,7 @@ public class WeaponManager : MonoBehaviour
         else
         {
             currentHaveGun.GetComponent<ParentConstraint>().enabled = false;
+            currentHaveGun.GetComponent<Rigidbody>().isKinematic = false;
             EquipGun(newGun);
         }
 
@@ -186,8 +195,25 @@ public class WeaponManager : MonoBehaviour
     //武器换弹
     public void Reload()
     {
-        currentHaveGun.Reload();
+        isReloading = true;
+
+        startLHandle = lHandle;
+
+        currentHaveGun.Reload(isReloading);
         ammunitionUI.Show();
+
+        player.anim.SetBool("Reload", isReloading);
+    }
+
+    //武器换弹结束
+    public void DoneReload()
+    {
+        isReloading = false;
+
+        currentHaveGun.Reload(isReloading);
+        player.anim.SetBool("Reload", isReloading);
+
+        lHandle = startLHandle;
     }
 
     //武器瞄准
@@ -210,6 +236,9 @@ public class WeaponManager : MonoBehaviour
     //左手IK吸附枪托
     private void LeftHandIkWait(bool isHoldGun)
     {
+        if (isReloading)
+            return;
+
         if (isHoldGun)
         {
             weaponAimElapsed += Time.deltaTime;
@@ -229,6 +258,9 @@ public class WeaponManager : MonoBehaviour
     //右手IK吸附
     private void RightHandIkWait(bool isAim)
     {
+        if (isReloading)
+            return;
+
         if (isAim)
         {
             weaponAimElapsed += Time.deltaTime;

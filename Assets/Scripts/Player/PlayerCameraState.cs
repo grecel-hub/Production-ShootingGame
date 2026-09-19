@@ -28,16 +28,12 @@ public class PlayerCameraState : PlayerState
         currentCamFollowX = player.camFollow.localPosition.x;
         currentCamFOV = player.freeLook.m_Lens.FieldOfView;
 
-        controls.Player.Reload.started += GetPlayerReloadInput;
-
         controls.Player.Aim.started += GetPlayerAimInput;
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        controls.Player.Reload.started -= GetPlayerReloadInput;
 
         controls.Player.Aim.started -= GetPlayerAimInput;
     }
@@ -49,11 +45,8 @@ public class PlayerCameraState : PlayerState
         ChangeCameraRadius();
     }
 
-    //武器换弹 --R
-    public void GetPlayerReloadInput(InputAction.CallbackContext ctx)
-    {
-        player.weaponManager.Reload();
-    }
+    
+    
 
     //武器瞄准 --右键
     public void GetPlayerAimInput(InputAction.CallbackContext ctx)

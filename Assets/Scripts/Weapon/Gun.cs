@@ -13,10 +13,13 @@ public class Gun : MonoBehaviour
 {
     protected GunType gunType;
 
-    [SerializeField] protected Transform muzzleTransform;
-    [SerializeField] protected int maxMagazineSize = 7;
+    protected Animator anim;
+
 
     [SerializeField] protected Transform LHandle;
+    [SerializeField] protected Transform muzzleTransform;
+    [SerializeField] protected Transform magazine;
+    [SerializeField] protected int maxMagazineSize = 7;
 
     protected int currentMagazineSize;
 
@@ -25,6 +28,8 @@ public class Gun : MonoBehaviour
 
     protected virtual void Start()
     {
+        anim = GetComponent<Animator>();
+
         shootController = new ShootController();
 
         cam = Camera.main;
@@ -65,10 +70,13 @@ public class Gun : MonoBehaviour
     }
 
     //换弹
-    public virtual void Reload()
+    public virtual void Reload(bool isReloading)
     {
-        if (currentMagazineSize >= maxMagazineSize)
-            return;
+        Rigidbody rb = magazine.GetComponent<Rigidbody>();
+
+        anim.SetBool("Reload", isReloading);
+
+        rb.isKinematic = !isReloading;
 
         currentMagazineSize = maxMagazineSize;
     }
@@ -79,11 +87,13 @@ public class Gun : MonoBehaviour
         return LHandle;
     }
 
+    //获取弹匣容量
     public virtual (int x, int y) GetMagazineSize()
     {
         return (currentMagazineSize, maxMagazineSize);
     }
 
+    //获取枪支类型
     public GunType GetGunType()
     {
         return gunType;

@@ -74,8 +74,6 @@ public class Player : Entity
         if (Physics.Raycast(ray, out RaycastHit hit, 1000f, aimMask))
         {
             targetPoint = hit.point;
-
-            Debug.Log(hit.collider.gameObject.name + " " + hit.collider.gameObject.layer);
         }
         else
         {
