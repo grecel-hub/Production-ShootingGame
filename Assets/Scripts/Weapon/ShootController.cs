@@ -19,6 +19,7 @@ public class ShootController
         AudioManager.instance.PlayEvent("Play_Handgun_Fire", gunTransform.gameObject);
     }
 
+    //造成伤害
     public void DoDamage(Entity entity, int layerMask)
     {
         int damage = LuaManager.instance.getDamage(layerMask);
@@ -27,5 +28,6 @@ public class ShootController
 
         Debug.Log($"命中 {entity.gameObject.name} 造成 {damage} 伤害");
     }
+
 
 }

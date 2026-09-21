@@ -14,17 +14,20 @@ public class Gun : MonoBehaviour
     protected GunType gunType;
 
     protected Animator anim;
-
+    protected ShootController shootController;
+    protected Camera cam;
 
     [SerializeField] protected Transform LHandle;
     [SerializeField] protected Transform muzzleTransform;
     [SerializeField] protected Transform magazine;
-    [SerializeField] protected int maxMagazineSize = 7;
 
-    protected int currentMagazineSize;
+    //Data
+    public int maxMagazineSize { get; protected set; } //最大弹容量
+    public int currentMagazineSize { get; protected set;  } //当前弹容量
+    public float duration { get; protected set; } //枪口复位时间
 
-    protected ShootController shootController;
-    protected Camera cam;
+    protected float fireTime;
+
 
     protected virtual void Start()
     {
@@ -39,7 +42,7 @@ public class Gun : MonoBehaviour
 
     protected virtual void Update()
     {
-        
+        fireTime += Time.deltaTime;
     }
 
     public virtual void DrawRay()
@@ -63,7 +66,7 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            Debug.Log("弹夹为空");
+            Debug.Log("弹夹为空||开火间隔");
 
             return false;
         }
@@ -98,4 +101,11 @@ public class Gun : MonoBehaviour
     {
         return gunType;
     }
+
+    #region 子类拓展方法
+    public virtual float GetGunRecoil(float elapsed)
+    {
+        return 0;
+    }
+    #endregion
 }

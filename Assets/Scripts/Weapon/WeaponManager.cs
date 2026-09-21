@@ -160,12 +160,12 @@ public class WeaponManager : MonoBehaviour
 
         float elapsed = 0f;
 
-        //使用Lua计算手枪后坐力
-        while (elapsed < LuaManager.instance.handGunTab.Get<float>("duration"))
+        //获取Lua计算后坐力
+        while (elapsed < currentHaveGun.duration)
         {
             elapsed += Time.deltaTime;
 
-            currentRecoil = LuaManager.instance.getHandGunRecoil(elapsed); 
+            currentRecoil = currentHaveGun.GetGunRecoil(elapsed);
 
             baseRot = spineBone.localRotation;
             offset = Quaternion.AngleAxis(currentRecoil, vector);
