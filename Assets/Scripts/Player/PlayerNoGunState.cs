@@ -25,8 +25,12 @@ namespace Assets.Scripts.Player
 
             if (player.weaponManager.currentHaveGun != null)
             {
-                if (player.weaponManager.currentHaveGun.GetGunType() == 0)
+                if (player.weaponManager.currentHaveGun.gunType == GunType.Short) //进入持短枪状态
                     stateMachine.ChangeState(player.holdShortGunState);
+
+                else if (player.weaponManager.currentHaveGun.gunType == GunType.Long) //进入持长枪状态
+                    stateMachine.ChangeState(player.holdLongGunState);
+
             }
         }
     }

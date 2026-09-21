@@ -13,11 +13,15 @@ public class Handgun : Gun
 
         maxMagazineSize = LuaManager.instance.handGunTab.Get<int>("maxMagazineSize");
         duration = LuaManager.instance.handGunTab.Get<float>("duration");
+
+        Debug.Log("当前武器最大弹容量：" + maxMagazineSize);
     }
 
     protected override void Update()
     {
         base.Update();
+
+        //Debug.Log("手枪开火间隔时长：" + fireTime);
     }
 
 
@@ -32,6 +36,8 @@ public class Handgun : Gun
             MuzzleFlashe muzzleFlashe = MuzzleFlashePool.instance.Get();
             muzzleFlashe.transform.position = muzzleTransform.position;
             muzzleFlashe.transform.rotation = muzzleTransform.rotation * Quaternion.Euler(0, 180, 0);
+
+            fireTime = 0;
 
             return true;
         }

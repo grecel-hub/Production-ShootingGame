@@ -16,6 +16,10 @@ public class LuaManager
     public LuaTable handGunTab { get; private set;  }
     public Func<float, float> getHandGunRecoil {  get; private set; }
 
+    //步枪Lua脚本使用后
+    public LuaTable rifleTab { get; private set;  }
+    public Func<float, float> getRifleRecoil { get; private set; }
+
     //子弹Lua脚本使用
     public LuaTable bulletTab {  get; private set; }
     public Func<int, int> getDamage { get; private set;  }
@@ -47,14 +51,24 @@ public class LuaManager
             return null;
         });
 
+        LuaDoString();
+        LuaRegister();
+    }
+
+    private void LuaDoString()
+    {
         luaEnv.DoString("HandGun = require('HandGun')");
+        luaEnv.DoString("Rifle = require('Rifle')");
         luaEnv.DoString("Bullet = require('Bullet')");
     }
 
-    public void Start()
+    public void LuaRegister()
     {
         handGunTab = luaEnv.Global.Get<LuaTable>("HandGun");
         getHandGunRecoil = handGunTab.Get<Func<float, float>>("GetRecoil");
+
+        rifleTab = luaEnv.Global.Get<LuaTable>("Rifle");
+        getRifleRecoil = rifleTab.Get<Func<float, float>>("GetRecoil");
 
         bulletTab = luaEnv.Global.Get<LuaTable>("Bullet");
         getDamage = bulletTab.Get<Func<int, int>>("GetDamage");
@@ -63,6 +77,7 @@ public class LuaManager
     public void OnDestroy()
     {
         getHandGunRecoil = null;
+        getRifleRecoil = null;
         getDamage = null;
 
         luaEnv?.Dispose();

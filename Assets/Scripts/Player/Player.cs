@@ -23,9 +23,9 @@ public class Player : Entity
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerNoGunState noGunState { get; private set; }
     public PlayerHoldShortGunState holdShortGunState { get; private set; }
+    public PlayerHoldLongGunState holdLongGunState { get; private set; }
     public PlayerAimState aimState { get; private set; }
     public PlayerNormalState normalState { get; private set; }
-
 
     protected void Awake()
     {
@@ -34,6 +34,7 @@ public class Player : Entity
 
         noGunState = new PlayerNoGunState(this, stateMachine, controls);
         holdShortGunState = new PlayerHoldShortGunState(this, stateMachine, controls);
+        holdLongGunState = new PlayerHoldLongGunState(this, stateMachine, controls);
         aimState = new PlayerAimState(this, stateMachine, controls);
         normalState = new PlayerNormalState(this, stateMachine, controls);
     }

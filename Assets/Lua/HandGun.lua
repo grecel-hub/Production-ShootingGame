@@ -7,7 +7,6 @@ local HandGun = {
     targetOffset = 2 --后坐力威力
 }
 
-
 function HandGun.GetRecoil(elapsed)
     local t = elapsed / HandGun.duration
     local smoothT = t * t * (3 - 2 * t)
