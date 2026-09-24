@@ -105,6 +105,28 @@ namespace XLua
 #endif
 		}
         
+		public UnityEngine.Vector3 __Gen_Delegate_Imp4(float p0)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
+                ObjectTranslator translator = luaEnv.translator;
+                LuaAPI.lua_pushnumber(L, p0);
+                
+                PCall(L, 1, 1, errFunc);
+                
+                
+                UnityEngine.Vector3 __gen_ret;translator.Get(L, errFunc + 1, out __gen_ret);
+                LuaAPI.lua_settop(L, errFunc - 1);
+                return  __gen_ret;
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
         
 		static DelegateBridge()
 		{
@@ -132,6 +154,11 @@ namespace XLua
 		    if (type == typeof(System.Func<int, int>))
 			{
 			    return new System.Func<int, int>(__Gen_Delegate_Imp3);
+			}
+		
+		    if (type == typeof(System.Func<float, UnityEngine.Vector3>))
+			{
+			    return new System.Func<float, UnityEngine.Vector3>(__Gen_Delegate_Imp4);
 			}
 		
 		    return null;

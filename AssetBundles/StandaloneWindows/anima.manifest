@@ -1,29 +1,35 @@
 ManifestFileVersion: 0
-CRC: 1114437596
+CRC: 246631498
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fdd1952c6094349f170dc7487e97fcf7
+    Hash: 5aa23a07e9e23081a6eb4e1ed4e56c02
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 147058da82bee871bbce28e472030442
+    Hash: 8b75d4550595fef5a93b5ca712ce822a
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: fdd1952c6094349f170dc7487e97fcf7
+    Hash: 5aa23a07e9e23081a6eb4e1ed4e56c02
 HashAppended: 0
 ClassTypes:
 - Class: 74
   Script: {instanceID: 0}
 - Class: 91
   Script: {instanceID: 0}
+- Class: 319
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Animations/Animators/PlayerAnimator.controller
 - Assets/Animations/Animations/PlayerNormal/normal_run.anim
+- Assets/Animations/Animations/PlayerHoldGun/hold_gun_reload.anim
 - Assets/Animations/Animations/PlayerHoldGun/hold_gun_fastrun_forward_loop.anim
 - Assets/Animations/Animations/PlayerNormal/normal_walk.anim
-- Assets/Animations/Animations/PlayerHoldGun/hold_gun_walk_reversed.anim
+- Assets/Animations/Animations/PlayerHoldGun/hold_gun_aim.anim
 - Assets/Animations/Animations/PlayerHoldGun/hold_gun_idle.anim
+- Assets/Animations/Animations/PlayerHoldGun/hold_gun_walk_reversed.anim
+- Assets/Animations/Animators/OnlyArms.mask
+- Assets/Animations/Animations/PlayerHoldGun/hold_longgun_idle.anim
 - Assets/Animations/Animations/PlayerNormal/Idle.anim
 - Assets/Animations/Animations/PlayerHoldGun/hold_gun_walk_loop.anim
 Dependencies: []

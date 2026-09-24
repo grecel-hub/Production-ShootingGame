@@ -42,7 +42,7 @@ namespace Assets.Scripts.Player
             if (isRuning || player.weaponManager.currentHaveGun == null)
                 return;
 
-            player.weaponManager.WeaponFire();
+            player.weaponManager.WeaponFire(anim.GetFloat("Speed"));
         }
 
         //武器换弹 --R

@@ -89,6 +89,9 @@ public class Player : Entity
     //准星角度限制
     public void AimAngleLimit()
     {
+        if (weaponManager.isRecoiling)
+            return;
+
         aimPosition = GetShootTargetPoint();
         aimPosition.y = 0f;
 

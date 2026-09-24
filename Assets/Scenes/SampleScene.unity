@@ -395,7 +395,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 20.00001
+  field of view: 20
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 20.00001
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -974,7 +974,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424356213}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.000000028772046, z: -6.062695e-17, w: 1}
+  m_LocalRotation: {x: -0.0000000074106317, y: 0.00000003718028, z: 2.3640414e-16,
+    w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1623,7 +1624,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1782255390}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 20.00001
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1643,7 +1644,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 0.55
+    m_MaxSpeed: 0.3
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -1838,7 +1839,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 20.00001
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1864,7 +1865,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780130244}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.000000028772046, z: -6.062695e-17, w: 1}
+  m_LocalRotation: {x: -0.0000000074106317, y: 0.00000003718028, z: 2.3640414e-16,
+    w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3107,7 +3109,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 20.00001
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -3133,7 +3135,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367773765}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.000000028772046, z: -6.062695e-17, w: 1}
+  m_LocalRotation: {x: -0.0000000074106317, y: 0.00000003718028, z: 2.3640414e-16,
+    w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3955,6 +3958,21 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.019476851
       objectReference: {fileID: 0}
+    - target: {fileID: 3634229669748681955, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.037954696
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634229669748681955, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.58759
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634229669748681955, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.657
+      objectReference: {fileID: 0}
     - target: {fileID: 4063282333090647400, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
       propertyPath: m_Enabled
@@ -3979,6 +3997,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RigLayers.Array.data[2].m_Active
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558558896339255351, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558558896339255351, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558558896339255351, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558558896339255351, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558558896339255351, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928159606927152764, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6061948680670698436, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
@@ -4132,9 +4180,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7250518677379600021, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
+      propertyPath: freeLook
+      value: 
+      objectReference: {fileID: 729285450}
+    - target: {fileID: 7250518677379600021, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
       propertyPath: canLeftIK
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7250518677379600021, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      propertyPath: camAimRoot
+      value: 
+      objectReference: {fileID: 1782255390}
     - target: {fileID: 7250518677379600021, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
       propertyPath: ammunitionUI

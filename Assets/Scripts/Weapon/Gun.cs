@@ -25,6 +25,7 @@ public abstract class Gun : MonoBehaviour
     public int maxMagazineSize { get; protected set; } //最大弹容量
     public int currentMagazineSize { get; protected set;  } //当前弹容量
     public float duration { get; protected set; } //枪口复位时间
+    public float maxAngleDeg { get; protected set; } //最大散射角度
 
     protected float fireTime;
 
@@ -78,8 +79,10 @@ public abstract class Gun : MonoBehaviour
     }
 
     #region 子类拓展方法
+    //初始化数据
+    protected abstract void DataInit();
     //开火
-    public abstract bool Fire(Player player);
+    public abstract bool Fire(Player player, float moveSpeed, int fireCount);
     //获取后坐力计算
     public abstract float GetGunRecoil(float elapsed);
     #endregion

@@ -1,13 +1,15 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 //武器管理
 public class WeaponManager : MonoBehaviour
 {
-    [Header("IK Info")]
+    [Header("IK Info")] //IK
     [SerializeField] private MultiAimConstraint armConstraint;
     [SerializeField] private MultiAimConstraint handConstraint;
     [SerializeField] private TwoBoneIKConstraint leftHandIk;
@@ -17,12 +19,14 @@ public class WeaponManager : MonoBehaviour
     private bool isAim;
     private bool isHoldGun;
 
-    [Header("Recoil Info")]
-    [SerializeField] private Transform aimTarget;
+    [Header("Recoil Info")] //后坐力
     [SerializeField] private Transform chest;
     [SerializeField] private Transform rightShoulder;
+    [SerializeField] private CinemachineFreeLook freeLook;
+    private float currentRecoil = 0;
+    public bool isRecoiling;
 
-    [Header("Weapon Info")]
+    [Header("Weapon Info")] //武器
     [SerializeField] private LayerMask gunMask;
     [SerializeField] private Transform handle;
     [SerializeField] private AmmunitionUI ammunitionUI;
@@ -32,8 +36,6 @@ public class WeaponManager : MonoBehaviour
 
 
     private Camera cam;
-    private float currentRecoil = 0;
-    public bool isRecoiling;
 
     
 
@@ -118,8 +120,6 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        Debug.Log(bestGun);
-
         return bestGun;
     }
 
@@ -152,11 +152,11 @@ public class WeaponManager : MonoBehaviour
     }
 
 
-    //后坐力控制
+    //模型上抬后坐力
     public IEnumerator SpineBoneRecoil(Transform spineBone, Vector3 vector)
     {
-        Quaternion baseRot;
-        Quaternion offset;
+        Quaternion spineBaseRot = spineBone.localRotation;
+        Quaternion spineOffset;
 
         float elapsed = 0f;
 
@@ -167,21 +167,63 @@ public class WeaponManager : MonoBehaviour
 
             currentRecoil = currentHaveGun.GetGunRecoil(elapsed);
 
-            baseRot = spineBone.localRotation;
-            offset = Quaternion.AngleAxis(currentRecoil, vector);
-            spineBone.localRotation = baseRot * offset;
+            //人物模型后坐力表现
+            spineOffset = Quaternion.AngleAxis(currentRecoil, vector);
+            spineBone.localRotation = spineBaseRot * spineOffset;
 
             yield return null;
         }
+
+        spineBone.localRotation = spineBaseRot;
+
+        currentRecoil = 0f;
+    }
+
+    // 摄像机上抬后坐力
+    public IEnumerator CamRecoil()
+    {
+        isRecoiling = true;
+
+        float freeLookYAxisBase = freeLook.m_YAxis.Value;
+        float freeLookYAxisOffset;
+
+        float elapsed = 0f;
+        float lastRecoil = 0f;
+
+        //获取Lua计算后坐力
+        while (elapsed < currentHaveGun.duration)
+        {
+            elapsed += Time.deltaTime;
+
+            currentRecoil = currentHaveGun.GetGunRecoil(elapsed);
+
+            float freeLookRecoil = currentRecoil / 500;
+
+            freeLookYAxisOffset = (freeLookRecoil - lastRecoil);
+
+            if (freeLook.m_YAxis.Value > freeLookYAxisBase && elapsed / currentHaveGun.duration > 0.3) //当玩家手动压枪至原位且处于回弹状态：停止回弹
+                break;
+
+            freeLook.m_YAxis.Value += freeLookYAxisOffset;
+
+            lastRecoil = freeLookRecoil;
+
+            yield return null;
+        }
+
+        currentRecoil = 0f;
+
+        isRecoiling = false;
     }
 
     //武器攻击
-    public void WeaponFire()
+    public void WeaponFire(float moveSpeed, int fireCount = 0)
     {
-        if (currentHaveGun.Fire(player))
+        if (currentHaveGun.Fire(player, moveSpeed, fireCount))
         {
-            StartCoroutine(SpineBoneRecoil(rightShoulder, Vector3.right));
-            StartCoroutine(SpineBoneRecoil(chest, Vector3.up));
+            StartCoroutine(CamRecoil()); //视角后坐力
+            StartCoroutine(SpineBoneRecoil(rightShoulder, Vector3.right)); //手臂后坐力
+            StartCoroutine(SpineBoneRecoil(chest, Vector3.up)); //躯干后坐力
         }
         else
         {
@@ -216,7 +258,7 @@ public class WeaponManager : MonoBehaviour
         lHandle = startLHandle;
     }
 
-    //武器瞄准
+    //武器瞄准状态
     public void WeaponAim(bool _isAim)
     {
         isAim = _isAim;

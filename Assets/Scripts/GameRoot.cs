@@ -19,7 +19,7 @@ public class GameRoot : MonoBehaviour
         Debug.Log("初始化manager脚本");
         AudioManager.instance.InitAsync().Forget();
 
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnDestroy()

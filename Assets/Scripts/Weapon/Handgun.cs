@@ -11,10 +11,8 @@ public class Handgun : Gun
 
         gunType = GunType.Short;
 
-        maxMagazineSize = LuaManager.instance.handGunTab.Get<int>("maxMagazineSize");
-        duration = LuaManager.instance.handGunTab.Get<float>("duration");
+        DataInit();
 
-        Debug.Log("当前武器最大弹容量：" + maxMagazineSize);
     }
 
     protected override void Update()
@@ -24,19 +22,23 @@ public class Handgun : Gun
         //Debug.Log("手枪开火间隔时长：" + fireTime);
     }
 
+    //从Lua脚本获取数据
+    protected override void DataInit()
+    {
+        maxMagazineSize = LuaManager.instance.handGunTab.Get<int>("maxMagazineSize");
+        duration = LuaManager.instance.handGunTab.Get<float>("duration");
+        maxAngleDeg = LuaManager.instance.handGunTab.Get<float>("maxAngleDeg");
+    }
+
 
     //开火
-    public override bool Fire(Player player)
+    public override bool Fire(Player player, float moveSpeed, int fireCount)
     {
         if (currentMagazineSize > 0 && fireTime > LuaManager.instance.handGunTab.Get<float>("fireInterval"))
         {
-            shootController.Shooting(muzzleTransform, cam, player.aimTarget.position);
+            shootController.Fire(player, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
+
             currentMagazineSize--;
-
-            MuzzleFlashe muzzleFlashe = MuzzleFlashePool.instance.Get();
-            muzzleFlashe.transform.position = muzzleTransform.position;
-            muzzleFlashe.transform.rotation = muzzleTransform.rotation * Quaternion.Euler(0, 180, 0);
-
             fireTime = 0;
 
             return true;

@@ -11,28 +11,29 @@ public class Rifle : Gun
 
         gunType = GunType.Long;
 
-        maxMagazineSize = LuaManager.instance.rifleTab.Get<int>("maxMagazineSize");
-        duration = LuaManager.instance.rifleTab.Get<float>("duration");
+        DataInit();
     }
 
     protected override void Update()
     {
         base.Update();
-
-        
     }
 
-    public override bool Fire(Player player)
+    //从Lua脚本获取数据
+    protected override void DataInit()
+    {
+        maxMagazineSize = LuaManager.instance.rifleTab.Get<int>("maxMagazineSize");
+        duration = LuaManager.instance.rifleTab.Get<float>("duration");
+        maxAngleDeg = LuaManager.instance.rifleTab.Get<float>("maxAngleDeg");
+    }
+
+    public override bool Fire(Player player, float moveSpeed, int fireCount)
     {
         if (currentMagazineSize > 0 && fireTime > LuaManager.instance.rifleTab.Get<float>("fireInterval"))
         {
-            shootController.Shooting(muzzleTransform, cam, player.aimTarget.position);
+            shootController.Fire(player, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
+
             currentMagazineSize--;
-
-            MuzzleFlashe muzzleFlashe = MuzzleFlashePool.instance.Get();
-            muzzleFlashe.transform.position = muzzleTransform.position;
-            muzzleFlashe.transform.rotation = muzzleTransform.rotation * Quaternion.Euler(0, 180, 0);
-
             fireTime = 0;
 
             return true;

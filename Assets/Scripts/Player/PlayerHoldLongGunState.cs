@@ -7,6 +7,7 @@ namespace Assets.Scripts.Player
     public class PlayerHoldLongGunState : PlayerStandState
     {
         private bool isFiring;
+        private int fireCount = 0;
 
         public PlayerHoldLongGunState(global::Player _player, PlayerStateMachine _stateMachine, PlayerControls _controls) : base(_player, _stateMachine, _controls)
         {
@@ -33,8 +34,8 @@ namespace Assets.Scripts.Player
                 if (isRuning || player.weaponManager.currentHaveGun == null)
                     return;
 
-                player.weaponManager.WeaponFire();
-
+                fireCount++;
+                player.weaponManager.WeaponFire(anim.GetFloat("Speed"), fireCount);
             }
 
         }
@@ -62,7 +63,10 @@ namespace Assets.Scripts.Player
             if (ctx.started)
                 isFiring = true;
             else if (ctx.canceled)
+            {
                 isFiring = false;
+                fireCount = 0;
+            }
         }
 
         //武器换弹 --R

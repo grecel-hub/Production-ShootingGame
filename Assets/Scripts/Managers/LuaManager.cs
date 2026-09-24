@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using XLua;
@@ -13,8 +11,8 @@ public class LuaManager
 
 
     //手枪Lua脚本使用
-    public LuaTable handGunTab { get; private set;  }
-    public Func<float, float> getHandGunRecoil {  get; private set; }
+    public LuaTable handGunTab { get; private set; }
+    public Func<float, float> getHandGunRecoil { get; private set; }
 
     //步枪Lua脚本使用后
     public LuaTable rifleTab { get; private set;  }
@@ -23,6 +21,7 @@ public class LuaManager
     //子弹Lua脚本使用
     public LuaTable bulletTab {  get; private set; }
     public Func<int, int> getDamage { get; private set;  }
+    public Func<float, Vector3> getFireDirection { get; private set; }
 
     private LuaManager() { }
 
@@ -53,6 +52,8 @@ public class LuaManager
 
         LuaDoString();
         LuaRegister();
+
+        
     }
 
     private void LuaDoString()
@@ -72,6 +73,7 @@ public class LuaManager
 
         bulletTab = luaEnv.Global.Get<LuaTable>("Bullet");
         getDamage = bulletTab.Get<Func<int, int>>("GetDamage");
+        getFireDirection = bulletTab.Get<Func<float, Vector3>>("GetFireDirection");
     }
 
     public void OnDestroy()
@@ -79,6 +81,7 @@ public class LuaManager
         getHandGunRecoil = null;
         getRifleRecoil = null;
         getDamage = null;
+        getFireDirection = null;
 
         luaEnv?.Dispose();
 

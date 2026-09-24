@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2936052168
+CRC: 2585922481
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cfecc20b88761a47e3e5ac56b9ac522f
+    Hash: 798ec01594265f17b424dd07b5adb331
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b5051b7407409c5863e158d601c2b714
+    Hash: 80fe9565c4843d24f1d67aa153bb0aa3
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: cfecc20b88761a47e3e5ac56b9ac522f
+    Hash: 798ec01594265f17b424dd07b5adb331
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -23,8 +23,6 @@ ClassTypes:
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
-  Script: {instanceID: 0}
-- Class: 48
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
@@ -61,8 +59,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: bbb72f95e3230274388256445e3acd01, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 9afb398667c3bb248882a3d8f7cbb3af, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 96d332ab3dbfaaf40bdd9745ff0b19f0, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8935e03361a14ec4b8edc872f76bc822, type: 3}
@@ -86,8 +82,6 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 199
   Script: {instanceID: 0}
-- Class: 1773428102
-  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
 - AssemblyName: Unity.Animation.Rigging
   ClassName: UnityEngine.Animations.Rigging.MultiAimConstraintData
@@ -105,7 +99,6 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.Animations.Rigging.WeightedTransformArray
 Assets:
 - Assets/AssetBundlesSource/Prefabs/MuzzleFlashes/WFX_MF Spr RIFLE2.prefab
-- Assets/AssetBundlesSource/Prefabs/Weapon_01.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/WFX_BImpact Metal.prefab
 - Assets/AssetBundlesSource/Prefabs/KyleRobot.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/Bullet.prefab
