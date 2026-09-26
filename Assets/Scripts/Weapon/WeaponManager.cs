@@ -238,13 +238,24 @@ public class WeaponManager : MonoBehaviour
     public void Reload()
     {
         isReloading = true;
-
         startLHandle = lHandle;
 
-        currentHaveGun.Reload(isReloading);
+        currentHaveGun.StartReload();
         ammunitionUI.Show();
 
         player.anim.SetBool("Reload", isReloading);
+    }
+
+    //换弹过程获取新弹匣
+    public void GetNewMagazine()
+    {
+        currentHaveGun.GetNewMagazine();
+    }
+
+    //完成弹匣安装
+    public void DoneInstallMagazine()
+    {
+        currentHaveGun.DoneInstallMagazine();
     }
 
     //武器换弹结束
@@ -252,7 +263,7 @@ public class WeaponManager : MonoBehaviour
     {
         isReloading = false;
 
-        currentHaveGun.Reload(isReloading);
+        currentHaveGun.DoneReload();
         player.anim.SetBool("Reload", isReloading);
 
         lHandle = startLHandle;

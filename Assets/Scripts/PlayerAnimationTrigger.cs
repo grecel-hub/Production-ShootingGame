@@ -9,7 +9,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
     [SerializeField] private Player player;
 
     //行走触发脚步声事件
-    public void PlayFootStep_Walk()
+    public void OnPlayFootStepWalk()
     {
         if (anim.GetFloat("Speed") < 0.1 || anim.GetFloat("Speed") > 1.5)
             return;
@@ -18,7 +18,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
     }
 
     //奔跑触发脚步声事件
-    public void PlayFootStep_Run()
+    public void OnPlayFootStepRun()
     {
         if (anim.GetFloat("Speed") <= 1.5)
             return;
@@ -26,7 +26,20 @@ public class PlayerAnimationTrigger : MonoBehaviour
         AudioManager.instance.PlayEvent("Play_Footstep_Run", gameObject);
     }
 
-    public void EndReload()
+    //换弹过程获取新弹匣
+    public void OnReloadGetNewMagazine()
+    {
+        player.weaponManager.GetNewMagazine();
+    }
+
+    //完成弹匣安装
+    public void OnReloadInstallMagazine()
+    {
+        player.weaponManager.DoneInstallMagazine();
+    }
+    
+    //完成上膛
+    public void OnReloadDone()
     {
         player.weaponManager.canLeftIK = true;
         player.weaponManager.DoneReload();

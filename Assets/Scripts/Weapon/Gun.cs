@@ -17,9 +17,10 @@ public abstract class Gun : MonoBehaviour
     protected ShootController shootController;
     protected Camera cam;
 
-    [SerializeField] protected Transform LHandle;
+    [SerializeField] protected Transform lHandle;
     [SerializeField] protected Transform muzzleTransform;
-    [SerializeField] protected Transform magazine;
+    [SerializeField] protected Transform magazineTransform;
+    protected Magazine magazine;
 
     //Data
     public int maxMagazineSize { get; protected set; } //最大弹容量
@@ -33,6 +34,7 @@ public abstract class Gun : MonoBehaviour
     protected virtual void Start()
     {
         anim = GetComponent<Animator>();
+        magazine = GetComponentInChildren<Magazine>();
 
         shootController = new ShootController();
 
@@ -55,21 +57,43 @@ public abstract class Gun : MonoBehaviour
 
 
     //换弹
-    public virtual void Reload(bool isReloading)
+    public void StartReload()
     {
-        Rigidbody rb = magazine.GetComponent<Rigidbody>();
+        magazine.UnloadMagazine();
 
-        anim.SetBool("Reload", isReloading);
+        anim.SetBool("Reload", true);
+    }
 
-        rb.isKinematic = !isReloading;
+    //获取弹匣
+    public void GetNewMagazine()
+    {
+        if (gunType == GunType.Long)
+            magazine = RifleMagazinePool.instance.Get();
+        else if (gunType == GunType.Short)
+            magazine = HandGunMagazinePool.instance.Get();
 
+        magazine.UpdateTransform(lHandle);
+
+    }
+
+    //完成弹匣安装
+    public void DoneInstallMagazine()
+    {
+        magazine.UpdateTransform(null);
+        magazine.InstallMagazine(magazineTransform);
         currentMagazineSize = maxMagazineSize;
+    }
+
+    //结束换弹
+    public void DoneReload()
+    {
+        anim.SetBool("Reload", false);
     }
 
     //获取左手握把位置
     public Transform GetLHandle()
     {
-        return LHandle;
+        return lHandle;
     }
 
     //获取弹匣容量

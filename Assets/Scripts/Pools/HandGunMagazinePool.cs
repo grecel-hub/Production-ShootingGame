@@ -1,7 +1,7 @@
 //泛型对象池挂载脚本
-public class BulletPool : ObjectPool<Bullet>
+public class HandGunMagazinePool : ObjectPool<Magazine>
 {
-    public static BulletPool instance { get; private set; }
+    public static HandGunMagazinePool instance { get; private set; }
 
     private void Awake()
     {

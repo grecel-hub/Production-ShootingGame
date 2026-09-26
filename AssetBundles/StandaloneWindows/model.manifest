@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1871213651
+CRC: 2301992340
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9f1112912a80075200993c98d4fe4673
+    Hash: 082aea25b5ac7e951a58b75c7025f9e7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2740b6e9c644236d34edbe98df04b981
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 9f1112912a80075200993c98d4fe4673
+    Hash: 082aea25b5ac7e951a58b75c7025f9e7
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,5 +38,6 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Models/KyleRobot.fbx
 - Assets/Models/Weapon_01.fbx
+- Assets/Models/Weapon_02.fbx
 Dependencies:
 - D:/job/Unity/OverlookShootingGame/AssetBundles/StandaloneWindows/material

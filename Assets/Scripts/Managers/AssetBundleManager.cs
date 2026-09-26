@@ -47,8 +47,6 @@ public class AssetBundleManager
         }
     }
 
-
-
     public static void CreateInstance()
     {
         if (instance != null) return;

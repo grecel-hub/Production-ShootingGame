@@ -51,12 +51,6 @@ public class Handgun : Gun
         }
     }
 
-    //换弹
-    public override void Reload(bool isReloading)
-    {
-        base.Reload(isReloading);
-    }
-
     //获取枪支后坐力
     public override float GetGunRecoil(float elapsed)
     {

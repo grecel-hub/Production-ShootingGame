@@ -42,7 +42,7 @@ public class LuaManager
             string path = Path.Combine(Application.dataPath, "Lua", filepath + ".lua");
             if (File.Exists(path))
             {
-                Debug.Log(filepath + "读取成功");
+                Debug.Log(filepath + "Lua脚本读取成功");
 
                 return File.ReadAllBytes(path);
             }

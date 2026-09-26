@@ -74,6 +74,7 @@ public class ObjectPool<T> : MonoBehaviour where T : Component
         return obj;
     }
 
+    //回收对象
     public void Return(T obj)
     {
         if (obj == null) return;

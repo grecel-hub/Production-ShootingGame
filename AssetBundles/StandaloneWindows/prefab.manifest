@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2585922481
+CRC: 2242247701
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 798ec01594265f17b424dd07b5adb331
+    Hash: 1eef30aa8e4067110859e480d1839f33
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 80fe9565c4843d24f1d67aa153bb0aa3
+    Hash: 22fe5f4f5db6318d588a3cd7ee58bca6
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 798ec01594265f17b424dd07b5adb331
+    Hash: 1eef30aa8e4067110859e480d1839f33
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -23,6 +23,8 @@ ClassTypes:
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
+  Script: {instanceID: 0}
+- Class: 48
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
@@ -64,6 +66,10 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 8935e03361a14ec4b8edc872f76bc822, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2f58126e1abaf184d994335640380c51, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3d1a40109e86b342a3db397cfafc707, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 134
@@ -99,6 +105,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.Animations.Rigging.WeightedTransformArray
 Assets:
 - Assets/AssetBundlesSource/Prefabs/MuzzleFlashes/WFX_MF Spr RIFLE2.prefab
+- Assets/AssetBundlesSource/Prefabs/Weapons/RifleMagazine.prefab
+- Assets/AssetBundlesSource/Prefabs/Weapons/HandGunMagazine.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/WFX_BImpact Metal.prefab
 - Assets/AssetBundlesSource/Prefabs/KyleRobot.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/Bullet.prefab
