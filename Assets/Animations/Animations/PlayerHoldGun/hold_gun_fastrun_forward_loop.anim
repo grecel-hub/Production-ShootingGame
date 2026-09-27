@@ -40954,7 +40954,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: PlayFootStep_Run
+    functionName: OnPlayFootStepRun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

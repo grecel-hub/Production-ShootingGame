@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 public class Magazine : MonoBehaviour
 {
     protected Rigidbody rb;
-    protected Transform followTransform;
 
     protected virtual void Start()
     {
@@ -17,17 +16,17 @@ public class Magazine : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (followTransform != null)
-        {
-            transform.position = followTransform.position;
-            transform.rotation = followTransform.rotation;
-        }
     }
 
     //令弹匣跟随左手
     public void UpdateTransform(Transform _transform)
     {
-        followTransform = _transform;
+        if (_transform == null)
+            return;
+
+        transform.parent = _transform;
+        transform.localPosition = Vector3.zero; 
+        transform.localRotation = Quaternion.identity;
     }
 
     //卸载弹匣

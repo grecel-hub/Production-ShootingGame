@@ -949,8 +949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424356213}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029417409, y: 0.000000026991433, z: -9.367596e-16,
-    w: 1}
+  m_LocalRotation: {x: 0.000000009691037, y: -0.00000003001033, z: 2.491584e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1014,6 +1013,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3035322670687216221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &540760682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540760683}
+  m_Layer: 6
+  m_Name: LHandTake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540760683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540760682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7165891, y: 0.000000059604638, z: -0.000000059604638, w: 0.6974957}
+  m_LocalPosition: {x: -0.0862, y: -0.0177, z: 0.0094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1880785426}
+  m_LocalEulerAnglesHint: {x: 91.547, y: 0, z: 0}
 --- !u!1 &607013206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,8 +1890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780130244}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029417409, y: 0.000000026991433, z: -9.367596e-16,
-    w: 1}
+  m_LocalRotation: {x: 0.000000009691037, y: -0.00000003001033, z: 2.491584e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3022,8 +3051,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367773765}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029417409, y: 0.000000026991433, z: -9.367596e-16,
-    w: 1}
+  m_LocalRotation: {x: 0.000000009691037, y: -0.00000003001033, z: 2.491584e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3566,6 +3594,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d880add0872e64ca7cef89de4bbbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1880785426 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6503084671040958477, guid: ee15b7662e25ccc478a6f03aa08012f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3035322670687216221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2032463175
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,7 +4017,12 @@ PrefabInstance:
     - target: {fileID: 4063282333090647400, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'RightShoulder'\n\tTransform 'Head'\n\tTransform
+        'LeftArm'\n\tTransform 'Neck'\n\tTransform 'LeftHand'\n\tTransform 'Spine2'\n\tTransform
+        'LeftUpperArm'\n\tTransform 'RightShoulder'\n\tTransform 'Head'\n\tTransform
+        'LeftArm'\n\tand more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 5516903461142443190, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
@@ -4192,6 +4231,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7250518677379600021, guid: ee15b7662e25ccc478a6f03aa08012f2,
         type: 3}
+      propertyPath: lHandTake
+      value: 
+      objectReference: {fileID: 540760683}
+    - target: {fileID: 7250518677379600021, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
       propertyPath: camAimRoot
       value: 
       objectReference: {fileID: 1782255390}
@@ -4287,6 +4331,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 853169207}
+    - targetCorrespondingSourceObject: {fileID: 6503084671040958477, guid: ee15b7662e25ccc478a6f03aa08012f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 540760683}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee15b7662e25ccc478a6f03aa08012f2, type: 3}
 --- !u!1001 &4031546104920974278
@@ -4365,6 +4413,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 441954511639715672, guid: 336e8f3da91a0734993255afb828801a,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 441954511639715672, guid: 336e8f3da91a0734993255afb828801a,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1346462244973770151, guid: 336e8f3da91a0734993255afb828801a,
         type: 3}
       propertyPath: m_Name
@@ -4424,6 +4482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005234726822632431, guid: 336e8f3da91a0734993255afb828801a,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4492,6 +4555,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HandGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765225630463071623, guid: bb12ed4060df6ca40be9a84748955c05,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8512291670605391832, guid: bb12ed4060df6ca40be9a84748955c05,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4576,7 +4649,6 @@ SceneRoots:
   - {fileID: 1171674993}
   - {fileID: 1394339613}
   - {fileID: 8842479205153820626}
-  - {fileID: 454016432}
   - {fileID: 16374114}
   - {fileID: 355461656958772736}
   - {fileID: 2032463178}
@@ -4584,3 +4656,4 @@ SceneRoots:
   - {fileID: 8275006833289839998}
   - {fileID: 2682802571203727073}
   - {fileID: 4031546104920974278}
+  - {fileID: 454016432}

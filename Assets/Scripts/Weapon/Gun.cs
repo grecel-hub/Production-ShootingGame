@@ -64,15 +64,17 @@ public abstract class Gun : MonoBehaviour
         anim.SetBool("Reload", true);
     }
 
+    #region 换弹生命周期
+
     //获取弹匣
-    public void GetNewMagazine()
+    public void GetNewMagazine(Transform takeMagazine)
     {
         if (gunType == GunType.Long)
             magazine = RifleMagazinePool.instance.Get();
         else if (gunType == GunType.Short)
             magazine = HandGunMagazinePool.instance.Get();
 
-        magazine.UpdateTransform(lHandle);
+        magazine.UpdateTransform(takeMagazine);
 
     }
 
@@ -89,6 +91,8 @@ public abstract class Gun : MonoBehaviour
     {
         anim.SetBool("Reload", false);
     }
+
+    #endregion
 
     //获取左手握把位置
     public Transform GetLHandle()

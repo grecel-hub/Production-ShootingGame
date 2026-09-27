@@ -26,6 +26,8 @@ public class PlayerAnimationTrigger : MonoBehaviour
         AudioManager.instance.PlayEvent("Play_Footstep_Run", gameObject);
     }
 
+
+    #region 换弹生命周期
     //换弹过程获取新弹匣
     public void OnReloadGetNewMagazine()
     {
@@ -44,6 +46,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
         player.weaponManager.canLeftIK = true;
         player.weaponManager.DoneReload();
     }
+    #endregion
 
     public void EndLeftIK()
     {

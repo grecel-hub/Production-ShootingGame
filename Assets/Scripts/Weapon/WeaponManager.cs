@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private MultiAimConstraint handConstraint;
     [SerializeField] private TwoBoneIKConstraint leftHandIk;
     [SerializeField] private Transform lHandle;
+    [SerializeField] private Transform lHandTake;
     public bool canLeftIK;
     private float weaponAimElapsed;
     private bool isAim;
@@ -123,6 +124,7 @@ public class WeaponManager : MonoBehaviour
         return bestGun;
     }
 
+    //装备武器
     public void EquipGun(Gun gun)
     {
         gun.transform.parent = handle;
@@ -134,7 +136,7 @@ public class WeaponManager : MonoBehaviour
         currentHaveGun = gun;
     }
 
-    //换枪
+    //更换武器
     public void SwitchGun(Gun newGun)
     {
         if (currentHaveGun == null)
@@ -143,7 +145,8 @@ public class WeaponManager : MonoBehaviour
         }
         else
         {
-            currentHaveGun.GetComponent<ParentConstraint>().enabled = false;
+            //currentHaveGun.GetComponent<ParentConstraint>().enabled = false;
+            currentHaveGun.transform.SetParent(null);
             currentHaveGun.GetComponent<Rigidbody>().isKinematic = false;
             EquipGun(newGun);
         }
@@ -234,6 +237,7 @@ public class WeaponManager : MonoBehaviour
 
     }
 
+    #region 换弹生命周期
     //武器换弹
     public void Reload()
     {
@@ -249,7 +253,7 @@ public class WeaponManager : MonoBehaviour
     //换弹过程获取新弹匣
     public void GetNewMagazine()
     {
-        currentHaveGun.GetNewMagazine();
+        currentHaveGun.GetNewMagazine(lHandTake);
     }
 
     //完成弹匣安装
@@ -268,6 +272,7 @@ public class WeaponManager : MonoBehaviour
 
         lHandle = startLHandle;
     }
+    #endregion
 
     //武器瞄准状态
     public void WeaponAim(bool _isAim)
