@@ -64,7 +64,18 @@ public class PlayerStandState : PlayerState
         else
             CharacterMovePlayer();
 
-        
+        if (player.weaponManager.currentHaveGun != null)
+        {
+            if (player.weaponManager.currentHaveGun.gunType == GunType.Short) //进入持短枪状态
+                stateMachine.ChangeState(player.holdShortGunState);
+
+            else if (player.weaponManager.currentHaveGun.gunType == GunType.Long) //进入持长枪状态
+                stateMachine.ChangeState(player.holdLongGunState);
+        }
+        else
+        {
+            stateMachine.ChangeState(player.noGunState); //进入不持枪状态
+        }
     }
 
     //角色移动 --W,A,S,D

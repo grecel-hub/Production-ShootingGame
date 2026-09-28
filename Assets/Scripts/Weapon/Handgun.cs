@@ -28,6 +28,7 @@ public class Handgun : Gun
         maxMagazineSize = LuaManager.instance.handGunTab.Get<int>("maxMagazineSize");
         duration = LuaManager.instance.handGunTab.Get<float>("duration");
         maxAngleDeg = LuaManager.instance.handGunTab.Get<float>("maxAngleDeg");
+        aimOffset = LuaManager.instance.handGunTab.Get<Vector3>("aimOffset");
     }
 
 

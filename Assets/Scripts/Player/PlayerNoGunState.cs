@@ -22,16 +22,6 @@ namespace Assets.Scripts.Player
         public override void Update()
         {
             base.Update();
-
-            if (player.weaponManager.currentHaveGun != null)
-            {
-                if (player.weaponManager.currentHaveGun.gunType == GunType.Short) //进入持短枪状态
-                    stateMachine.ChangeState(player.holdShortGunState);
-
-                else if (player.weaponManager.currentHaveGun.gunType == GunType.Long) //进入持长枪状态
-                    stateMachine.ChangeState(player.holdLongGunState);
-
-            }
         }
     }
 }

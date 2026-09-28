@@ -39,6 +39,7 @@ public class PlayerNormalState : PlayerCameraState
         base.Update();
     }
 
+    //拾取武器
     public void GetPlayerPickInput(InputAction.CallbackContext ctx)
     {
         if (player.weaponManager.GetPickGun() == null) return;

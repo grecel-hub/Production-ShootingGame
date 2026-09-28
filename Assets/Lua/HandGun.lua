@@ -5,7 +5,9 @@ local HandGun = {
     maxAngleDeg = 4, --最大散射角度
 
     startAngle = 0, --当前后坐力角度
-    targetOffset = 4 --后坐力威力
+    targetOffset = 4, --后坐力威力
+
+    aimOffset = {x = 8.5, y = -20.3, z = 11.8}
 }
 
 function HandGun.GetRecoil(elapsed)

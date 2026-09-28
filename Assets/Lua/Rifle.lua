@@ -5,7 +5,9 @@ local Rifle = {
     maxAngleDeg = 2, --最大散射角度
     
     startAngle = 0, --当前后坐力角度
-    targetOffset = 2 --后坐力威力
+    targetOffset = 2, --后坐力威力
+
+    aimOffset = {x = -22.6, y = -39.39, z = -15.88}
 }
 
 function Rifle.GetRecoil(elapsed)

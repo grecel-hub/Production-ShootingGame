@@ -83,6 +83,7 @@ public class WeaponManager : MonoBehaviour
 
     }
 
+    #region 装备
     //准星获取要拾取的枪支
     public Gun GetPickGun()
     {
@@ -134,6 +135,8 @@ public class WeaponManager : MonoBehaviour
         gun.GetComponent<Rigidbody>().isKinematic = true;
 
         currentHaveGun = gun;
+
+        armConstraint.data.offset = currentHaveGun.aimOffset;
     }
 
     //更换武器
@@ -153,8 +156,9 @@ public class WeaponManager : MonoBehaviour
 
         ammunitionUI.Show();
     }
+    #endregion
 
-
+    #region 开火
     //模型上抬后坐力
     public IEnumerator SpineBoneRecoil(Transform spineBone, Vector3 vector)
     {
@@ -237,6 +241,24 @@ public class WeaponManager : MonoBehaviour
 
     }
 
+    //武器瞄准状态
+    public void WeaponAim(bool _isAim)
+    {
+        isAim = _isAim;
+
+        if (isAim)
+        {
+            handConstraint.data.constrainedXAxis = false;
+            handConstraint.data.constrainedZAxis = false;
+        }
+        else
+        {
+            handConstraint.data.constrainedXAxis = true;
+            handConstraint.data.constrainedZAxis = true;
+        }
+    }
+    #endregion
+
     #region 换弹生命周期
     //武器换弹
     public void Reload()
@@ -273,23 +295,6 @@ public class WeaponManager : MonoBehaviour
         lHandle = startLHandle;
     }
     #endregion
-
-    //武器瞄准状态
-    public void WeaponAim(bool _isAim)
-    {
-        isAim = _isAim;
-
-        if (isAim)
-        {
-            handConstraint.data.constrainedXAxis = false;
-            handConstraint.data.constrainedZAxis = false;
-        }
-        else
-        {
-            handConstraint.data.constrainedXAxis = true;
-            handConstraint.data.constrainedZAxis = true;
-        }
-    }
 
     //左手IK吸附枪托
     private void LeftHandIkWait(bool isHoldGun)

@@ -25,6 +25,7 @@ public class Rifle : Gun
         maxMagazineSize = LuaManager.instance.rifleTab.Get<int>("maxMagazineSize");
         duration = LuaManager.instance.rifleTab.Get<float>("duration");
         maxAngleDeg = LuaManager.instance.rifleTab.Get<float>("maxAngleDeg");
+        aimOffset = LuaManager.instance.rifleTab.Get<Vector3>("aimOffset");
     }
 
     public override bool Fire(Player player, float moveSpeed, int fireCount)
