@@ -1,5 +1,6 @@
 using Assets.Scripts.Player;
 using Cinemachine;
+using Codely.Newtonsoft.Json.Bson;
 using UnityEngine;
 
 //玩家
@@ -15,8 +16,11 @@ public class Player : Entity
     private Camera cam;
     private Vector3 aimPosition;
 
-    public WeaponManager weaponManager { get; private set; }
+    [Header("Interact Info")]
+    public bool canSwitchDoor;
+    public DoorKit doorKit;
 
+    public WeaponManager weaponManager { get; private set; }
     public PlayerControls controls { get; private set; }
 
     //状态
@@ -64,6 +68,7 @@ public class Player : Entity
         AimAngleLimit();
     }
 
+    #region 视角控制
     //获取准星位置
     public Vector3 GetShootTargetPoint()
     {
@@ -112,4 +117,11 @@ public class Player : Entity
 
         aimTarget.position = Vector3.Lerp(aimTarget.position, GetShootTargetPoint(), 1f);
     }
+    #endregion
+
+    public void SetDoorKit(DoorKit _doorKit)
+    {
+        doorKit = _doorKit;
+    }
+
 }

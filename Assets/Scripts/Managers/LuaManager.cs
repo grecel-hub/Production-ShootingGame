@@ -11,8 +11,8 @@ public class LuaManager
 
 
     //手枪Lua脚本使用
-    public LuaTable handGunTab { get; private set; }
-    public Func<float, float> getHandGunRecoil { get; private set; }
+    public LuaTable handgunTab { get; private set; }
+    public Func<float, float> getHandgunRecoil { get; private set; }
 
     //步枪Lua脚本使用后
     public LuaTable rifleTab { get; private set;  }
@@ -58,15 +58,15 @@ public class LuaManager
 
     private void LuaDoString()
     {
-        luaEnv.DoString("HandGun = require('HandGun')");
+        luaEnv.DoString("Handgun = require('Handgun')");
         luaEnv.DoString("Rifle = require('Rifle')");
         luaEnv.DoString("Bullet = require('Bullet')");
     }
 
     public void LuaRegister()
     {
-        handGunTab = luaEnv.Global.Get<LuaTable>("HandGun");
-        getHandGunRecoil = handGunTab.Get<Func<float, float>>("GetRecoil");
+        handgunTab = luaEnv.Global.Get<LuaTable>("Handgun");
+        getHandgunRecoil = handgunTab.Get<Func<float, float>>("GetRecoil"); 
 
         rifleTab = luaEnv.Global.Get<LuaTable>("Rifle");
         getRifleRecoil = rifleTab.Get<Func<float, float>>("GetRecoil");
@@ -78,7 +78,7 @@ public class LuaManager
 
     public void OnDestroy()
     {
-        getHandGunRecoil = null;
+        getHandgunRecoil = null;
         getRifleRecoil = null;
         getDamage = null;
         getFireDirection = null;

@@ -33,12 +33,10 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private AmmunitionUI ammunitionUI;
     public Gun currentHaveGun;
     public bool isReloading;
+    public bool needChamber;
     private Transform startLHandle;
 
-
     private Camera cam;
-
-    
 
     private Player player;
 
@@ -63,8 +61,14 @@ public class WeaponManager : MonoBehaviour
         {
             isHoldGun = true;
 
+            //更新弹药显示
             ammunitionUI.SetAmmunitionText(currentHaveGun.GetMagazineSize());
+
+            //结束换弹--非空挂换弹
+            if (currentHaveGun.GetCanSkipChamber())
+                DoneReload();
         }
+
 
     }
 
@@ -142,6 +146,9 @@ public class WeaponManager : MonoBehaviour
     //更换武器
     public void SwitchGun(Gun newGun)
     {
+        if (isRecoiling) //开火时无法换枪
+            return;
+
         if (currentHaveGun == null)
         {
             EquipGun(newGun);
@@ -149,6 +156,8 @@ public class WeaponManager : MonoBehaviour
         else
         {
             //currentHaveGun.GetComponent<ParentConstraint>().enabled = false;
+            currentHaveGun.DoneReload(); //换弹中途换枪，直接结束换弹动画
+
             currentHaveGun.transform.SetParent(null);
             currentHaveGun.GetComponent<Rigidbody>().isKinematic = false;
             EquipGun(newGun);
@@ -281,10 +290,10 @@ public class WeaponManager : MonoBehaviour
     //完成弹匣安装
     public void DoneInstallMagazine()
     {
-        currentHaveGun.DoneInstallMagazine();
+        currentHaveGun.InstallMagazineAndNeedsChamber();
     }
 
-    //武器换弹结束
+    //武器空挂换弹结束
     public void DoneReload()
     {
         isReloading = false;

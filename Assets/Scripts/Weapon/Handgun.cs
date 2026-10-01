@@ -25,17 +25,17 @@ public class Handgun : Gun
     //从Lua脚本获取数据
     protected override void DataInit()
     {
-        maxMagazineSize = LuaManager.instance.handGunTab.Get<int>("maxMagazineSize");
-        duration = LuaManager.instance.handGunTab.Get<float>("duration");
-        maxAngleDeg = LuaManager.instance.handGunTab.Get<float>("maxAngleDeg");
-        aimOffset = LuaManager.instance.handGunTab.Get<Vector3>("aimOffset");
+        maxMagazineSize = LuaManager.instance.handgunTab.Get<int>("maxMagazineSize");
+        duration = LuaManager.instance.handgunTab.Get<float>("duration");
+        maxAngleDeg = LuaManager.instance.handgunTab.Get<float>("maxAngleDeg");
+        aimOffset = LuaManager.instance.handgunTab.Get<Vector3>("aimOffset");
     }
 
 
     //开火
     public override bool Fire(Player player, float moveSpeed, int fireCount)
     {
-        if (currentMagazineSize > 0 && fireTime > LuaManager.instance.handGunTab.Get<float>("fireInterval"))
+        if (currentMagazineSize > 0 && fireTime > LuaManager.instance.handgunTab.Get<float>("fireInterval"))
         {
             shootController.Fire(player, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
 
@@ -55,7 +55,7 @@ public class Handgun : Gun
     //获取枪支后坐力
     public override float GetGunRecoil(float elapsed)
     {
-        return LuaManager.instance.getHandGunRecoil(elapsed);
+        return LuaManager.instance.getHandgunRecoil(elapsed);
     }
 
 }

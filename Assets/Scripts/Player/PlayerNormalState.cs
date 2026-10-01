@@ -23,6 +23,7 @@ public class PlayerNormalState : PlayerCameraState
         player.weaponManager.WeaponAim(false);
 
         controls.Player.Pick.canceled += GetPlayerPickInput;
+        controls.Player.Interaction.canceled += GetPlayerSwitchDoor;
     }
 
     public override void Exit()
@@ -32,14 +33,16 @@ public class PlayerNormalState : PlayerCameraState
         isAim = true;
 
         controls.Player.Pick.canceled -= GetPlayerPickInput;
+        controls.Player.Interaction.canceled -= GetPlayerSwitchDoor;
     }
 
     public override void Update()
     {
         base.Update();
+
     }
 
-    //拾取武器
+    //拾取武器 --按F
     public void GetPlayerPickInput(InputAction.CallbackContext ctx)
     {
         if (player.weaponManager.GetPickGun() == null) return;
@@ -47,4 +50,15 @@ public class PlayerNormalState : PlayerCameraState
         player.weaponManager.SwitchGun(player.weaponManager.GetPickGun());
 
     }
+
+    //开关门 --按E互动
+    public void GetPlayerSwitchDoor(InputAction.CallbackContext ctx)
+    {
+        if (player.canSwitchDoor)
+        {
+            player.doorKit.SwitchDoor();
+        }
+    }
+
+    
 }

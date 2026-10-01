@@ -50,6 +50,6 @@ public class Rifle : Gun
     //获取枪支后坐力
     public override float GetGunRecoil(float elapsed)
     {
-        return LuaManager.instance.getHandGunRecoil(elapsed);
+        return LuaManager.instance.getHandgunRecoil(elapsed);
     }
 }

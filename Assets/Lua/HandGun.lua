@@ -1,4 +1,4 @@
-local HandGun = {
+local Handgun = {
     maxMagazineSize = 7, --最大弹容量
     duration = 0.4, --枪口复位时间
     fireInterval = 0.1, --开火间隔时间
@@ -10,20 +10,20 @@ local HandGun = {
     aimOffset = {x = 8.5, y = -20.3, z = 11.8}
 }
 
-function HandGun.GetRecoil(elapsed)
+function Handgun.GetRecoil(elapsed)
 
-    local t = elapsed / HandGun.duration
+    local t = elapsed / Handgun.duration
 
     if t < 0.3 then --上升
         local recoilT = t / 0.3
         local smoothT = recoilT * recoilT * (3 - 2 * recoilT)
-        return CS.UnityEngine.Mathf.Lerp(HandGun.startAngle, HandGun.startAngle - HandGun.targetOffset, smoothT)
+        return CS.UnityEngine.Mathf.Lerp(Handgun.startAngle, Handgun.startAngle - Handgun.targetOffset, smoothT)
     else --下降
         local recoilT = (t - 0.3) / 0.7
         local smoothT = recoilT * recoilT * (3 - 2 * recoilT)
-        return CS.UnityEngine.Mathf.Lerp(HandGun.startAngle - HandGun.targetOffset, HandGun.startAngle, smoothT)
+        return CS.UnityEngine.Mathf.Lerp(Handgun.startAngle - Handgun.targetOffset, Handgun.startAngle, smoothT)
     end
 
 end
 
-return HandGun
+return Handgun

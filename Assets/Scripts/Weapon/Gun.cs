@@ -30,6 +30,7 @@ public abstract class Gun : MonoBehaviour
     public Vector3 aimOffset { get; protected set; } //瞄准控制肩膀偏差
 
     protected float fireTime;
+    protected bool canSkipChamber;
 
 
     protected virtual void Start()
@@ -60,7 +61,15 @@ public abstract class Gun : MonoBehaviour
     //换弹
     public void StartReload()
     {
+        canSkipChamber = false;
+
         magazine.UnloadMagazine();
+
+        if (currentMagazineSize > 0) //判断是否需要上膛
+            anim.SetBool("Chamber", false);
+
+        else
+            anim.SetBool("Chamber", true);
 
         anim.SetBool("Reload", true);
     }
@@ -79,11 +88,12 @@ public abstract class Gun : MonoBehaviour
 
     }
 
-    //完成弹匣安装
-    public void DoneInstallMagazine()
+    //完成弹匣安装，并返回一个bool判断是否执行PlayerAnimator的后续上膛动画
+    public void InstallMagazineAndNeedsChamber()
     {
         magazine.UpdateTransform(null);
         magazine.InstallMagazine(magazineTransform);
+
         currentMagazineSize = maxMagazineSize;
     }
 
@@ -91,6 +101,7 @@ public abstract class Gun : MonoBehaviour
     public void DoneReload()
     {
         anim.SetBool("Reload", false);
+        anim.SetBool("Chamber", false);
     }
 
     #endregion
@@ -107,6 +118,14 @@ public abstract class Gun : MonoBehaviour
         return (currentMagazineSize, maxMagazineSize);
     }
 
+    public bool GetCanSkipChamber()
+    {
+        if (canSkipChamber)
+            return true;
+        else
+            return false;
+    }
+
     #region 子类拓展方法
     //初始化数据
     protected abstract void DataInit();
@@ -114,5 +133,13 @@ public abstract class Gun : MonoBehaviour
     public abstract bool Fire(Player player, float moveSpeed, int fireCount);
     //获取后坐力计算
     public abstract float GetGunRecoil(float elapsed);
+    #endregion
+
+    #region 动画触发事件
+    //完成弹匣更换，无后续上膛动画
+    public void OnReloadFinishMagazineInstall()
+    {
+        canSkipChamber = true;
+    }
     #endregion
 }
