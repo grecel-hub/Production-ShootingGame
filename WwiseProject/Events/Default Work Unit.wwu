@@ -36,6 +36,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Environment_Ambiant" ID="{8B152784-583C-427E-9091-09BAD9A2975A}">
+					<ChildrenList>
+						<Action Name="" ID="{A016C2A6-93EB-4231-B08C-9148912E0D9F}" ShortID="866603944">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambiant_Loop" ID="{B9A9EE22-0284-408C-837E-72C3D8802406}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Environment_Computer" ID="{A94E0E6F-AD16-44D8-A57B-F257AEBE4107}">
+					<ChildrenList>
+						<Action Name="" ID="{16ABD7F5-10C9-46EB-AB09-E049BE5C19D3}" ShortID="351511508">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Computer_loop" ID="{1ACC572D-3BE7-4FA2-820E-860D2B96C8F0}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Environment_Machin" ID="{87E36FF3-18E8-4534-9D2C-304681B18C4A}">
+					<ChildrenList>
+						<Action Name="" ID="{78FC3565-9393-48A6-98CE-BDAFBCC27E21}" ShortID="1054314892">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Machin_Loop" ID="{6D5D2183-24FC-4352-862D-9A6E06C953D9}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Environment_Door" ID="{4D48FC59-A397-4C4C-B8B9-F5D30B4457B3}">
+					<ChildrenList>
+						<Action Name="" ID="{A88F3F99-FCE8-4D4F-BE6E-67FC8A06BC3E}" ShortID="12394287">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pneumatic-door" ID="{C81122CE-A9CB-4563-9341-526504ACF6EA}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

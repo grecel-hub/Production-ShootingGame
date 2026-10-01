@@ -1,34 +1,34 @@
 ManifestFileVersion: 0
-CRC: 2456241848
+CRC: 3412205203
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: banks
+      Name: anima
       Dependencies: {}
     Info_1:
-      Name: material
-      Dependencies:
-        Dependency_0: texture
-        Dependency_1: shader
+      Name: shader
+      Dependencies: {}
     Info_2:
       Name: prefab
       Dependencies:
-        Dependency_0: material
-        Dependency_1: model
-        Dependency_2: anima
+        Dependency_0: anima
+        Dependency_1: material
+        Dependency_2: model
         Dependency_3: mesh
     Info_3:
+      Name: material
+      Dependencies:
+        Dependency_0: shader
+        Dependency_1: texture
+    Info_4:
       Name: model
       Dependencies:
         Dependency_0: material
-    Info_4:
+    Info_5:
       Name: texture
       Dependencies: {}
-    Info_5:
-      Name: anima
-      Dependencies: {}
     Info_6:
-      Name: shader
+      Name: banks
       Dependencies: {}
     Info_7:
       Name: mesh

@@ -39,7 +39,7 @@ namespace Assets.Scripts.Player
         //武器开火 --左键
         public void GetPlayerFireInput(InputAction.CallbackContext ctx)
         {
-            if (isRuning || player.weaponManager.currentHaveGun == null)
+            if (isRuning || player.weaponManager.currentHaveGun == null || isAim == false)
                 return;
 
             player.weaponManager.WeaponFire(anim.GetFloat("Speed"));

@@ -29,6 +29,8 @@ public class Door : MonoBehaviour
             OpenDoor();
         else
             CloseDoor();
+
+        AudioManager.instance.PlayEvent("Play_Environment_Door", gameObject);
     }
 
     private void OpenDoor()

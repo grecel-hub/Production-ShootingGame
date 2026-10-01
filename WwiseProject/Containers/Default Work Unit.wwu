@@ -518,6 +518,103 @@
 						<ActiveSource Name="hangun_shoot" ID="{99863CE3-FC53-4CF8-A812-CC5BEEE7DB35}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="Ambiant_Loop" ID="{B9A9EE22-0284-408C-837E-72C3D8802406}" ShortID="183467381">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Ambiant_Loop" ID="{BD151567-4AB3-4FA9-8C85-0D676FC4CFE6}">
+							<Language>SFX</Language>
+							<AudioFile>Ambiant_Loop.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="973297182"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Ambiant_Loop" ID="{BD151567-4AB3-4FA9-8C85-0D676FC4CFE6}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Computer_loop" ID="{1ACC572D-3BE7-4FA2-820E-860D2B96C8F0}" ShortID="92861398">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Computer_loop" ID="{12C7FE47-EAD1-496F-B9A2-C17F17CBF25B}">
+							<Language>SFX</Language>
+							<AudioFile>Computer_loop.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="57753881"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Computer_loop" ID="{12C7FE47-EAD1-496F-B9A2-C17F17CBF25B}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Machin_Loop" ID="{6D5D2183-24FC-4352-862D-9A6E06C953D9}" ShortID="976711538">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Machin_Loop" ID="{6C0256B1-9BDC-4C9E-B397-3F3785D9D806}">
+							<Language>SFX</Language>
+							<AudioFile>Machin_Loop.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="497694609"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Machin_Loop" ID="{6C0256B1-9BDC-4C9E-B397-3F3785D9D806}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Pneumatic-door" ID="{C81122CE-A9CB-4563-9341-526504ACF6EA}" ShortID="860952691">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Pneumatic-door" ID="{B99527DF-479D-43B3-B516-FE54F744E3DC}">
+							<Language>SFX</Language>
+							<AudioFile>Pneumatic-door.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="1058060942"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Pneumatic-door" ID="{B99527DF-479D-43B3-B516-FE54F744E3DC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</Containers>

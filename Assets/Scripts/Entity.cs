@@ -33,11 +33,13 @@ public class Entity : MonoBehaviour
         Die();
     }
 
+    //失去生命值
     public void TakeDamage(int damage)
     {
         health -= damage;
     }
 
+    //角色死亡
     public void Die()
     {
         if (!isDead || !canDie)
