@@ -6,8 +6,8 @@ public class Entity : MonoBehaviour
 {
     public CharacterController character { get; protected set; }
     public Animator anim {  get; protected set; }
-
     public Rigidbody[] rbs { get; protected set; }
+    public WeaponManager weaponManager { get; private set; }
 
 
     protected int health = 1000;
@@ -19,8 +19,8 @@ public class Entity : MonoBehaviour
     {
         character = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-
         rbs = GetComponentsInChildren<Rigidbody>();
+        weaponManager = GetComponent<WeaponManager>();
     }
 
     protected virtual void Update()

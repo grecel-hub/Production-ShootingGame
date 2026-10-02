@@ -19,7 +19,7 @@ public class Player : Entity
     public bool canSwitchDoor;
     public DoorKit doorKit;
 
-    public WeaponManager weaponManager { get; private set; }
+    
     public PlayerControls controls { get; private set; }
 
     //状态
@@ -48,7 +48,7 @@ public class Player : Entity
 
         cam = Camera.main;
 
-        weaponManager = GetComponent<WeaponManager>();
+        
 
         stateMachine.Initialize(noGunState, normalState);
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAnimationTrigger : MonoBehaviour
 {
     [SerializeField] private Animator anim;
-    [SerializeField] private Player player;
+    [SerializeField] private Entity entity;
 
     //行走触发脚步声事件
     public void OnPlayFootStepWalk()
@@ -35,25 +35,25 @@ public class PlayerAnimationTrigger : MonoBehaviour
     //换弹过程获取新弹匣
     public void OnReloadGetNewMagazine()
     {
-        player.weaponManager.GetNewMagazine();
+        entity.weaponManager.GetNewMagazine();
     }
 
     //完成弹匣安装
     public void OnReloadInstallMagazine()
     {
-        player.weaponManager.DoneInstallMagazine();
+        entity.weaponManager.DoneInstallMagazine();
     }
 
     //结束换弹
     public void OnReloadDone()
     {
-        player.weaponManager.canLeftIK = true;
-        player.weaponManager.DoneReload();
+        entity.weaponManager.canLeftIK = true;
+        entity.weaponManager.DoneReload();
     }
     #endregion
 
     public void EndLeftIK()
     {
-        player.weaponManager.canLeftIK = false;
+        entity.weaponManager.canLeftIK = false;
     }
 }

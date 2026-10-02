@@ -3476,10 +3476,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73ffbc06802a247cfb1b26f4ee67eba8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7816939687338765589}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73ffbc06802a247cfb1b26f4ee67eba8,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7250518677379600021}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73ffbc06802a247cfb1b26f4ee67eba8,
         type: 3}
@@ -5007,28 +5003,6 @@ CapsuleCollider:
   m_Height: 1.842004
   m_Direction: 1
   m_Center: {x: 0.02001971, y: 0.87057835, z: 0}
---- !u!114 &7816939687338765589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7334201847817735592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d880add0872e64ca7cef89de4bbbf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDead: 0
-  canDie: 1
-  freeLook: {fileID: 0}
-  camFollow: {fileID: 1136400973047301730}
-  aimTarget: {fileID: 3634229669748681955}
-  crosshair: {fileID: 0}
-  aimStartTarget: {fileID: 7133750032158786673}
-  aimMask:
-    serializedVersion: 2
-    m_Bits: 7555
 --- !u!114 &7250518677379600021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5045,9 +5019,12 @@ MonoBehaviour:
   handConstraint: {fileID: 1125721298763995439}
   leftHandIk: {fileID: 6750345561396951310}
   lHandle: {fileID: 6503084671040958477}
-  aimTarget: {fileID: 5558558896339255351}
+  lHandTake: {fileID: 0}
+  canLeftIK: 0
   chest: {fileID: 5233424872784974763}
   rightShoulder: {fileID: 390561768792216830}
+  freeLook: {fileID: 0}
+  isRecoiling: 0
   gunMask:
     serializedVersion: 2
     m_Bits: 128
@@ -5055,7 +5032,7 @@ MonoBehaviour:
   ammunitionUI: {fileID: 0}
   currentHaveGun: {fileID: 0}
   isReloading: 0
-  isRecoiling: 0
+  needChamber: 0
 --- !u!114 &5516903461142443190
 MonoBehaviour:
   m_ObjectHideFlags: 0
