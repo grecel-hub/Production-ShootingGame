@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public Transform camFollow;
+    public Transform aimTarget;
+
     public CharacterController character { get; protected set; }
     public Animator anim {  get; protected set; }
     public Rigidbody[] rbs { get; protected set; }

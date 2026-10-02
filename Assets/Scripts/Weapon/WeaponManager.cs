@@ -38,12 +38,15 @@ public class WeaponManager : MonoBehaviour
 
     private Camera cam;
 
-    private Player player;
+    private Entity entity;
 
 
     private void Start()
     {
-        player = GetComponent<Player>();
+        if (GetComponent<Player>())
+            entity = GetComponent<Player>();
+        else if (GetComponent<Enemy>())
+            entity = GetComponent<Enemy>();
 
         cam = Camera.main;
     }
@@ -235,7 +238,7 @@ public class WeaponManager : MonoBehaviour
     //武器攻击
     public void WeaponFire(float moveSpeed, int fireCount = 0)
     {
-        if (currentHaveGun.Fire(player, moveSpeed, fireCount))
+        if (currentHaveGun.Fire(entity, moveSpeed, fireCount))
         {
             StartCoroutine(CamRecoil()); //视角后坐力
             StartCoroutine(SpineBoneRecoil(rightShoulder, Vector3.right)); //手臂后坐力
@@ -278,7 +281,7 @@ public class WeaponManager : MonoBehaviour
         currentHaveGun.StartReload();
         ammunitionUI.Show();
 
-        player.anim.SetBool("Reload", isReloading);
+        entity.anim.SetBool("Reload", isReloading);
     }
 
     //换弹过程获取新弹匣
@@ -299,7 +302,7 @@ public class WeaponManager : MonoBehaviour
         isReloading = false;
 
         currentHaveGun.DoneReload();
-        player.anim.SetBool("Reload", isReloading);
+        entity.anim.SetBool("Reload", isReloading);
 
         lHandle = startLHandle;
     }

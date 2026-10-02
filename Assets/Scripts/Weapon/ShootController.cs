@@ -20,16 +20,16 @@ public class ShootController
     }
 
     //开火时玩家移动或持续开火大于10发弹道出现偏移，两个条件同时触发偏移*2
-    public void Fire(Player player, float moveSpeed, int fireCount, Transform muzzleTransform, Camera cam, float maxAngleDeg)
+    public void Fire(Entity entity, float moveSpeed, int fireCount, Transform muzzleTransform, Camera cam, float maxAngleDeg)
     {
         if ((moveSpeed >= 0.3 || moveSpeed <= -0.3) && fireCount > 10)
-            Shooting(muzzleTransform, cam, player.aimTarget.position, maxAngleDeg * 2);
+            Shooting(muzzleTransform, cam, entity.aimTarget.position, maxAngleDeg * 2);
         else if (moveSpeed >= 0.3 || moveSpeed <= -0.3)
-            Shooting(muzzleTransform, cam, player.aimTarget.position, maxAngleDeg);
+            Shooting(muzzleTransform, cam, entity.aimTarget.position, maxAngleDeg);
         else if (fireCount > 10)
-            Shooting(muzzleTransform, cam, player.aimTarget.position, maxAngleDeg);
+            Shooting(muzzleTransform, cam, entity.aimTarget.position, maxAngleDeg);
         else
-            Shooting(muzzleTransform, cam, player.aimTarget.position);
+            Shooting(muzzleTransform, cam, entity.aimTarget.position);
 
         MuzzleFlashe muzzleFlashe = MuzzleFlashePool.instance.Get();
         muzzleFlashe.transform.position = muzzleTransform.position;

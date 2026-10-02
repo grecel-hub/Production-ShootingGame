@@ -130,7 +130,7 @@ public abstract class Gun : MonoBehaviour
     //初始化数据
     protected abstract void DataInit();
     //开火
-    public abstract bool Fire(Player player, float moveSpeed, int fireCount);
+    public abstract bool Fire(Entity entity, float moveSpeed, int fireCount);
     //获取后坐力计算
     public abstract float GetGunRecoil(float elapsed);
     #endregion

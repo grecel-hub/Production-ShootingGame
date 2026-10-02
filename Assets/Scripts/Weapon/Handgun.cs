@@ -33,11 +33,11 @@ public class Handgun : Gun
 
 
     //开火
-    public override bool Fire(Player player, float moveSpeed, int fireCount)
+    public override bool Fire(Entity entity, float moveSpeed, int fireCount)
     {
         if (currentMagazineSize > 0 && fireTime > LuaManager.instance.handgunTab.Get<float>("fireInterval"))
         {
-            shootController.Fire(player, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
+            shootController.Fire(entity, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
 
             currentMagazineSize--;
             fireTime = 0;

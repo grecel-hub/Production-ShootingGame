@@ -7,8 +7,7 @@ public class Player : Entity
 {
     [Header("Camera Info")]
     public CinemachineFreeLook freeLook;
-    public Transform camFollow;
-    public Transform aimTarget;
+
     public GameObject crosshair;
     [SerializeField] private Transform aimStartTarget;
     [SerializeField] private LayerMask aimMask;
