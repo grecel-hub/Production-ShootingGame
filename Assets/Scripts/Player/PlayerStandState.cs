@@ -17,7 +17,6 @@ public class PlayerStandState : PlayerState
     protected float walkSpeed = 1.5f;
     protected float runSpeed = 3f;
 
-
     public PlayerStandState(Player _player, PlayerStateMachine _stateMachine, PlayerControls _controls) : base(_player, _stateMachine, _controls)
     {
     }

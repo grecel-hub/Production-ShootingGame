@@ -24,7 +24,7 @@ public abstract class Gun : MonoBehaviour
 
     //Data
     public int maxMagazineSize { get; protected set; } //最大弹容量
-    public int currentMagazineSize { get; protected set;  } //当前弹容量
+    public int currentMagazineSize; //当前弹容量
     public float duration { get; protected set; } //枪口复位时间
     public float maxAngleDeg { get; protected set; } //最大散射角度
     public Vector3 aimOffset { get; protected set; } //瞄准控制肩膀偏差

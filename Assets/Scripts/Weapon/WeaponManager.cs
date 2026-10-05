@@ -58,14 +58,15 @@ public class WeaponManager : MonoBehaviour
         if (canLeftIK)
             LeftHandIkWait(isHoldGun);
 
-        RightHandIkWait(isAim);
+        RightArmConstraintWait(isAim);
 
         if (currentHaveGun != null)
         {
             isHoldGun = true;
 
             //更新弹药显示
-            ammunitionUI.SetAmmunitionText(currentHaveGun.GetMagazineSize());
+            if (ammunitionUI != null)
+                ammunitionUI.SetAmmunitionText(currentHaveGun.GetMagazineSize());
 
             //结束换弹--非空挂换弹
             if (currentHaveGun.GetCanSkipChamber())
@@ -240,7 +241,9 @@ public class WeaponManager : MonoBehaviour
     {
         if (currentHaveGun.Fire(entity, moveSpeed, fireCount))
         {
-            StartCoroutine(CamRecoil()); //视角后坐力
+            if (freeLook != null) //敌人没有freeLook，也不需要压枪
+                StartCoroutine(CamRecoil()); //视角后坐力
+
             StartCoroutine(SpineBoneRecoil(rightShoulder, Vector3.right)); //手臂后坐力
             StartCoroutine(SpineBoneRecoil(chest, Vector3.up)); //躯干后坐力
         }
@@ -249,7 +252,7 @@ public class WeaponManager : MonoBehaviour
 
         }
 
-        ammunitionUI.Show();
+        ammunitionUI?.Show();
 
     }
 
@@ -279,7 +282,9 @@ public class WeaponManager : MonoBehaviour
         startLHandle = lHandle;
 
         currentHaveGun.StartReload();
-        ammunitionUI.Show();
+
+        if (ammunitionUI != null)
+            ammunitionUI.Show();
 
         entity.anim.SetBool("Reload", isReloading);
     }
@@ -330,9 +335,12 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    //右手IK吸附
-    private void RightHandIkWait(bool isAim)
+    //右肩膀跟随准星
+    private void RightArmConstraintWait(bool isAim)
     {
+        if (!gameObject.CompareTag("Player"))
+            return;
+
         if (isReloading)
             return;
 

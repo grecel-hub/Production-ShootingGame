@@ -10,3 +10,33 @@
     11.748          24.663          19.719          -33.594
     88.531          81.46           77.836          34.808
     -9.613          8.755           3.627           -28.096
+
+
+    Root Selector
+│
+├── Combat Sequence
+│   │
+│   ├── CanSeePlayer
+│   │
+│   └── Selector
+│       │
+│       ├── Attack
+│       │   ├── InAttackRange
+│       │   ├── FacePlayer
+│       │   └── Shoot
+│       │
+│       └── Chase
+│           └── MoveToPlayer
+│
+├── Search Sequence
+│   │
+│   ├── HasLastKnownPosition
+│   └── Sequence
+│       ├── MoveToLastKnownPosition
+│       └── SearchAround
+│
+└── Patrol Sequence
+    │
+    └── Sequence
+        ├── MoveToPatrolPoint
+        └── Wait

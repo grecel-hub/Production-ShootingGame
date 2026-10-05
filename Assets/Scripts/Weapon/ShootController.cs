@@ -41,8 +41,6 @@ public class ShootController
     {
         float maxRad = Mathf.Deg2Rad * maxAngleDeg;
 
-        Debug.Log(LuaManager.instance);
-
         Vector3 localDir = LuaManager.instance.getFireDirection(maxRad);
 
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, baseDir);

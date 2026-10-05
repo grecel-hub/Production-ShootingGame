@@ -68,9 +68,6 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
 
-        Debug.Log("bulletImpact == null: " + (bulletImpact == null));
-
-        Debug.Log("触发子弹回收");
         rb.isKinematic = false;
         bulletMesh.SetActive(true);
         bulletImpact.SetActive(false);
