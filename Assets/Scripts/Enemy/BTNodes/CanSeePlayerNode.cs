@@ -1,18 +1,9 @@
 using BehaviorTree;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class CanSeePlayerNode : Leaf
 {
     public CanSeePlayerNode(string _name, Enemy _enemy) : base(_name, _enemy)
     {
-    }
-
-    public override NodeState Process()
-    {
-        return base.Process();
     }
 
     protected override void Enter()

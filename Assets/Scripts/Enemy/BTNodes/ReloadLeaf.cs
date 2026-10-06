@@ -1,8 +1,4 @@
 using BehaviorTree;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEngine;
 
 public class ReloadLeaf : Leaf
 {
@@ -11,12 +7,6 @@ public class ReloadLeaf : Leaf
     public ReloadLeaf(string _name, Enemy _enemy) : base(_name, _enemy)
     {
         weaponManager = enemy.weaponManager;
-    }
-
-
-    public override NodeState Process()
-    {
-        return base.Process();
     }
 
     protected override void Enter()
@@ -37,7 +27,7 @@ public class ReloadLeaf : Leaf
 
         return NodeState.Running;
     }
-    
+
 
     protected override void Exit()
     {

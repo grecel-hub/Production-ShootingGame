@@ -1,26 +1,20 @@
 using BehaviorTree;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
+//攻击玩家行为
 public class AttackLeaf : Leaf
 {
+    private WeaponManager weaponManager;
+    private EnemyPerception perception;
+
     public AttackLeaf(string _name, Enemy _enemy) : base(_name, _enemy)
     {
-    }
-
-    private WeaponManager weaponManager;
-
-    public override NodeState Process()
-    {
-        return base.Process();
+        weaponManager = enemy.weaponManager;
+        perception = enemy.perception;
     }
 
     protected override void Enter()
     {
         base.Enter();
-
-        weaponManager = enemy.weaponManager;
 
         enemy.anim.SetBool("Aim", true);
         weaponManager.WeaponAim(true);
@@ -28,7 +22,7 @@ public class AttackLeaf : Leaf
 
     protected override NodeState Update()
     {
-        if (enemy.weaponManager.currentHaveGun.currentMagazineSize <= 0)
+        if (enemy.weaponManager.currentHaveGun.currentMagazineSize <= 0 || perception.canSeePlayer == false) //没子弹或看不见玩家返回失败
             return NodeState.Failure;
 
         enemy.aimTarget.position = enemy.perception.firePosition;

@@ -40,23 +40,45 @@ public class Enemy : Entity
     {
         root = new BTNode("Root");
 
-        var patrol = new PatrolLeaf("Patrol", this);
+        var canSeePlayer = new CanSeePlayerNode("CanSeePlayer?", this);
+        var attack = new AttackLeaf("Attack", this);
 
         var reload = new ReloadLeaf("Reload", this);
-        var attack = new AttackLeaf("Attack", this);
-        var canSeePlayer = new CanSeePlayerNode("CanSeePlayer?", this);
 
-        var attackSequenceNode = new SequenceNode("Attack", 0);
-        var selectorNode = new SelectorNode("Reload", 1f);
+        var chase = new ChaseLeaf("Chase", this);
 
-        attackSequenceNode.AddChild(canSeePlayer);
-        attackSequenceNode.AddChild(attack);
+        var searchLeft = new SearchLeaf("SearchLeft", this, -60, 360f);
+        var searchRight = new SearchLeaf("SearchRight", this, 120, 360f);
 
-        selectorNode.AddChild(attackSequenceNode);
-        selectorNode.AddChild(reload);
-        selectorNode.AddChild(patrol);
+        var patrol = new PatrolLeaf("Patrol", this);
 
-        root.AddChild(selectorNode);
+
+        var rootSelector = new SelectorNode("Root", 0f);
+        var combatSelector = new SelectorNode("Combat", 1f);
+        var attackSequence = new SequenceNode("Attack", 1f);
+        var investigateSelector = new SelectorNode("Investigate", 0f);
+        var searchSelector = new SelectorNode("Search", 0f);
+        var patrolSequence = new SequenceNode("Patrol");
+
+        attackSequence.AddChild(canSeePlayer);
+        attackSequence.AddChild(attack);
+        
+        investigateSelector.AddChild(chase);
+        searchSelector.AddChild(searchLeft);
+        searchSelector.AddChild(searchRight);
+        investigateSelector.AddChild(searchSelector);
+
+        combatSelector.AddChild(attackSequence);
+        combatSelector.AddChild(reload);
+        combatSelector.AddChild(investigateSelector);
+
+        patrolSequence.AddChild(patrol);
+
+        rootSelector.AddChild(combatSelector);
+        rootSelector.AddChild(patrolSequence);
+
+        root.AddChild(rootSelector);
+
     }
 
     protected override void Update()
@@ -125,6 +147,7 @@ public class Enemy : Entity
     {
         float targetSpeed = agent.desiredVelocity.magnitude;
 
+        transform.position = anim.rootPosition;
         agent.nextPosition = transform.position;
 
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, 0.1f);

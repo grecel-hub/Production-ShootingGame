@@ -14,29 +14,26 @@
 
     Root Selector
 │
-├── Combat Sequence
+└── Combat Selector 1f
 │   │
-│   ├── CanSeePlayer
+│   ├── Attack Sequence 1f
+│   │   ├── CanSeePlayer
+|   |   ├── AimPlayer --未完成
+|   |   ├── Attack  --update里会判断canSeePlayer和弹匣是否还有子弹
+|   |
+|   ├── Reload
 │   │
-│   └── Selector
-│       │
-│       ├── Attack
-│       │   ├── InAttackRange
-│       │   ├── FacePlayer
-│       │   └── Shoot
-│       │
-│       └── Chase
-│           └── MoveToPlayer
+│   └── Investigate Selector -0f
+|       ├── Chase    --前往玩家上次出现位置，中途发现玩家Success回到Combat Selector，没有发现玩家到达目的地后Failure，前往下一个子节点Search Selector
+|       |
+|       ├── Search Selector -0f
+|           ├──SearchLeaf   --向左扫视，发现玩家Success，回到Combat Selector，扫视结束Failure，前往下一个子节点SearchRight
+|           ├──SearchRight  --向右扫视，发现玩家Success，回到Combat Selector，扫视结束Failure，回到Root Selector，前往下一个子节点Patrol
+│           
 │
-├── Search Sequence
-│   │
-│   ├── HasLastKnownPosition
-│   └── Sequence
-│       ├── MoveToLastKnownPosition
-│       └── SearchAround
 │
 └── Patrol Sequence
     │
     └── Sequence
         ├── MoveToPatrolPoint
-        └── Wait
+        └── Wait --未完成

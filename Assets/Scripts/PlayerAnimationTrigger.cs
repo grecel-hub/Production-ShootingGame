@@ -15,8 +15,6 @@ public class PlayerAnimationTrigger : MonoBehaviour
             return;
 
         AudioManager.instance.PlayEvent("Play_Footstep_Walk", gameObject);
-
-        Debug.Log("播放行走脚步声");
     }
 
     //奔跑触发脚步声事件
@@ -26,8 +24,6 @@ public class PlayerAnimationTrigger : MonoBehaviour
             return;
 
         AudioManager.instance.PlayEvent("Play_Footstep_Run", gameObject);
-
-        Debug.Log("播放奔跑脚步声");
     }
 
 

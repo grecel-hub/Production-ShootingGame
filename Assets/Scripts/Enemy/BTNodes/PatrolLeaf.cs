@@ -1,23 +1,18 @@
 using BehaviorTree;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class PatrolLeaf : Leaf
 {
     private EnemyPatrolManager patrolManager;
+    private EnemyPerception perception;
 
     private int currenPatrolPoint;
 
     public PatrolLeaf(string _name, Enemy _enemy) : base(_name, _enemy)
     {
         patrolManager = enemy.patrolManager;
-    }
-
-    public override NodeState Process()
-    {
-        return base.Process();
+        perception = enemy.perception;
     }
 
     protected override void Enter()
@@ -29,6 +24,9 @@ public class PatrolLeaf : Leaf
 
     protected override NodeState Update()
     {
+        if (perception.canSeePlayer)
+            return NodeState.Failure;
+
         if (enemy.ReachedDesination()) //到达巡逻点
         {
             currenPatrolPoint++;

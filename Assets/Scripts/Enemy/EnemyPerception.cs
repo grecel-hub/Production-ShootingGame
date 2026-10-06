@@ -12,10 +12,11 @@ public class EnemyPerception : MonoBehaviour
 
     public bool canSeePlayer {  get; private set; }
     public Vector3 firePosition { get; private set;  }
+    public Vector3 playerPosition { get; private set;  }
 
     private void Start()
     {
-        
+        playerPosition = Vector3.zero;
     }
 
     private void Update()
@@ -51,6 +52,8 @@ public class EnemyPerception : MonoBehaviour
                 {
                     canSeePlayer = true;
                     firePosition = hit.point;
+                    playerPosition = hit.transform.position;
+
                     break;
                 }
             }

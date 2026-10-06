@@ -5,11 +5,12 @@ using UnityEngine;
 namespace BehaviorTree
 {
     #region 复合节点
-    //
+    //Selector会在重新选择行为前等待
     public class SelectorNode : BTNode
     {
         private float timer = 0;
         private float thinkTime;
+        private bool isRunning;
 
         public SelectorNode(string _name, float _thinkTime) : base(_name)
         {
@@ -19,6 +20,26 @@ namespace BehaviorTree
 
         public override NodeState Process()
         {
+            // 当前子节点Running时每帧继续执行
+            // 当前行为结束后，等待thinkTime再重新选择行为
+            if (isRunning)
+            {
+                NodeState state = children[currentChild].Process();
+
+                if (state == NodeState.Success)
+                {
+                    isRunning = false;
+                    Reset();
+                    return NodeState.Success;
+                }
+
+                if (state == NodeState.Running)
+                    return NodeState.Running;
+
+                currentChild++;
+                isRunning = false;
+            }
+
             timer += Time.deltaTime;
 
             if (timer < thinkTime)
@@ -39,6 +60,7 @@ namespace BehaviorTree
 
                 if (state == NodeState.Running)
                 {
+                    isRunning = true;
                     return NodeState.Running;
                 }
 
@@ -48,14 +70,21 @@ namespace BehaviorTree
             Reset();
             return NodeState.Failure;
         }
+
+        public override void Reset()
+        {
+            base.Reset();
+
+            isRunning = false;
+        }
     }
 
-    //
+    //Sequence会每次执行子节点前等待
     public class SequenceNode : BTNode
     {
         private float timer = 0;
         private float thinkTime;
-        public SequenceNode(string _name, float _thinkTime) : base(_name)
+        public SequenceNode(string _name, float _thinkTime = 0f) : base(_name)
         {
             thinkTime = _thinkTime;
             timer = thinkTime;
