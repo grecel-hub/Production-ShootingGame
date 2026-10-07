@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2758752570
+CRC: 579093026
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6df1de8bd94d360fb4927f580e3d0cce
+    Hash: 3a3abbad4eb84939770cfdee9f71d8f2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3804fff75a0097117b46de8db3840751
+    Hash: dde4791bc60fd4cd9a3904b4cbc4a5db
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6df1de8bd94d360fb4927f580e3d0cce
+    Hash: 3a3abbad4eb84939770cfdee9f71d8f2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -107,6 +107,7 @@ Assets:
 - Assets/AssetBundlesSource/Prefabs/MuzzleFlashes/WFX_MF Spr RIFLE2.prefab
 - Assets/AssetBundlesSource/Prefabs/Weapons/RifleMagazine.prefab
 - Assets/AssetBundlesSource/Prefabs/Weapons/HandGunMagazine.prefab
+- Assets/AssetBundlesSource/KyleRobot.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/WFX_BImpact Metal.prefab
 - Assets/AssetBundlesSource/Prefabs/KyleRobot.prefab
 - Assets/AssetBundlesSource/Prefabs/Bullets/Bullet.prefab

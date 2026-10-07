@@ -12,7 +12,7 @@ namespace BehaviorTree
         private float thinkTime;
         private bool isRunning;
 
-        public SelectorNode(string _name, float _thinkTime) : base(_name)
+        public SelectorNode(string _name, float _thinkTime = 0f) : base(_name)
         {
             thinkTime = _thinkTime;
             timer = thinkTime;

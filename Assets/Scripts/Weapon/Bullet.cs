@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 //子弹
@@ -42,7 +40,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("目标layer:" + other.gameObject.layer);
             shootController.DoDamage(entity, other.gameObject.layer);
-            
+
         }
 
         rb.isKinematic = true;
@@ -64,7 +62,7 @@ public class Bullet : MonoBehaviour
         lifeTime = 0f;
     }
 
-    public IEnumerator Return()
+    private IEnumerator Return()
     {
         yield return new WaitForSeconds(3);
 
@@ -75,5 +73,5 @@ public class Bullet : MonoBehaviour
 
         BulletPool.instance.Return(this);
     }
-    
+
 }

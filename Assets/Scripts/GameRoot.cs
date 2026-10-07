@@ -12,12 +12,13 @@ public class GameRoot : MonoBehaviour
         LuaManager.CreateInstance();
         AssetBundleManager.CreateInstance();
         AudioManager.CreateInstance();
+
+        Debug.Log("初始化manager脚本");
+        AudioManager.instance.InitAsync().Forget();
     }
 
     private void Start()
     {
-        Debug.Log("初始化manager脚本");
-        AudioManager.instance.InitAsync().Forget();
 
         Cursor.lockState = CursorLockMode.Locked;
     }

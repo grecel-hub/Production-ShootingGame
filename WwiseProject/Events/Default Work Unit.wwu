@@ -80,6 +80,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Rifle_Fire" ID="{2907CBA5-08E9-493A-B4F0-D044F614C5AF}">
+					<ChildrenList>
+						<Action Name="" ID="{D66C5D46-45A9-4F80-8E6D-2D5804F8C829}" ShortID="27004866">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="rifle_shoot" ID="{D95F2533-612B-4D3C-9122-6DA6611758CD}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reload_Unload" ID="{6F4EE345-3DF8-4754-940F-4835E52EA560}">
+					<ChildrenList>
+						<Action Name="" ID="{66C7C6D4-69C7-4716-B5A6-57DBDA05754E}" ShortID="655164374">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="reload_unload" ID="{1F2B3D09-CA61-4F4A-98C9-4C678EFFFA99}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reload_Install" ID="{E940716C-6095-4D9F-9B1E-E874702713D4}">
+					<ChildrenList>
+						<Action Name="" ID="{2F4D1C04-1CF7-4D82-A9C6-DFAACEDC4F63}" ShortID="165134661">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="reload_install" ID="{85622AEC-E932-40C8-A92F-C333965A2FDF}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Reload_Chamber" ID="{8B254540-6F29-4C02-90EE-38B4016116EE}">
+					<ChildrenList>
+						<Action Name="" ID="{0C5DF0E7-BC2B-457C-A2CD-B7B83C8F466B}" ShortID="327969256">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="chamber_start" ID="{DC44AA87-21CF-4A8B-A22D-1F0FA96C530D}" WorkUnitID="{89624B50-1380-4521-8CC2-8C206886FF67}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

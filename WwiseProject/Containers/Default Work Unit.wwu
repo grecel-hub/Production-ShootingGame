@@ -26,7 +26,18 @@
 					</ActiveSourceList>
 				</Sound>
 				<RandomSequenceContainer Name="RandomFootstep_Walk" ID="{D7186A25-D885-40C6-92F3-CEDD2E800091}" ShortID="569419416">
+					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -259,13 +270,12 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="RandomFootstep_Run" ID="{954D394D-8A21-41C2-8EF9-BDA1265F493A}" ShortID="375559299">
 					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>4</Value>
-							</ValueList>
-						</Property>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -497,7 +507,17 @@
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<Sound Name="hangun_shoot" ID="{24F887E9-87C8-47ED-A403-71FC0692A71A}" ShortID="169592518">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -520,9 +540,18 @@
 				</Sound>
 				<Sound Name="Ambiant_Loop" ID="{B9A9EE22-0284-408C-837E-72C3D8802406}" ShortID="183467381">
 					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-13</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -545,9 +574,18 @@
 				</Sound>
 				<Sound Name="Computer_loop" ID="{1ACC572D-3BE7-4FA2-820E-860D2B96C8F0}" ShortID="92861398">
 					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-20</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -570,9 +608,18 @@
 				</Sound>
 				<Sound Name="Machin_Loop" ID="{6D5D2183-24FC-4352-862D-9A6E06C953D9}" ShortID="976711538">
 					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-13</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -594,7 +641,18 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Pneumatic-door" ID="{C81122CE-A9CB-4563-9341-526504ACF6EA}" ShortID="860952691">
+					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
 						</Reference>
@@ -613,6 +671,151 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Pneumatic-door" ID="{B99527DF-479D-43B3-B516-FE54F744E3DC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="rifle_shoot" ID="{D95F2533-612B-4D3C-9122-6DA6611758CD}" ShortID="443984146">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="rifle_shoot" ID="{4C14A8FF-7B06-421A-A51F-2E6BDCB2437D}">
+							<Language>SFX</Language>
+							<AudioFile>rifle_shoot.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="399106134"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="rifle_shoot" ID="{4C14A8FF-7B06-421A-A51F-2E6BDCB2437D}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="reload_unload" ID="{1F2B3D09-CA61-4F4A-98C9-4C678EFFFA99}" ShortID="380169253">
+					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="reload_unload" ID="{BB3F5068-4B76-43F1-958E-D1C57EAA1E6C}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.13344"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>reload.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="16221598"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="reload_unload" ID="{BB3F5068-4B76-43F1-958E-D1C57EAA1E6C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="reload_install" ID="{85622AEC-E932-40C8-A92F-C333965A2FDF}" ShortID="417130757">
+					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="reload_install" ID="{A994F2A1-8751-476B-9442-89637EB05298}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.47793"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.82082"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>reload.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="281886199"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="reload_install" ID="{A994F2A1-8751-476B-9442-89637EB05298}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="chamber_start" ID="{DC44AA87-21CF-4A8B-A22D-1F0FA96C530D}" ShortID="1037252338">
+					<PropertyList>
+						<Property Name="AttenuationDistanceScaling" Type="Real32" Value="0.5"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-15</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Physically_Based" ID="{7AF96D5E-B0A7-4524-B96B-04F53DEAEC94}" WorkUnitID="{E312AA2F-7D32-49AE-9B3F-853E8C0370AC}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A2D98C7B-547D-467D-B548-11500044A133}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B4ACFAF-3D4F-468D-96DB-9D91D64F2052}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="chamber" ID="{1B1968BD-24EF-4E50-BAC7-F2AE09B243D8}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="3.8342"/>
+								<Property Name="TrimEnd" Type="Real64" Value="4.14714"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>chamber.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="385382620"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="chamber" ID="{1B1968BD-24EF-4E50-BAC7-F2AE09B243D8}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

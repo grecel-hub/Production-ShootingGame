@@ -38,6 +38,7 @@ public class Handgun : Gun
         if (currentMagazineSize > 0 && fireTime > LuaManager.instance.handgunTab.Get<float>("fireInterval"))
         {
             shootController.Fire(entity, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
+            AudioManager.instance.PlayEvent("Play_Handgun_Fire", gameObject);
 
             currentMagazineSize--;
             fireTime = 0;

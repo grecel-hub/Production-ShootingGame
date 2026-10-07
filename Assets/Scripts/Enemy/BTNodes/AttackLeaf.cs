@@ -6,6 +6,8 @@ public class AttackLeaf : Leaf
     private WeaponManager weaponManager;
     private EnemyPerception perception;
 
+    private bool isFirstAttack;
+
     public AttackLeaf(string _name, Enemy _enemy) : base(_name, _enemy)
     {
         weaponManager = enemy.weaponManager;
@@ -15,6 +17,8 @@ public class AttackLeaf : Leaf
     protected override void Enter()
     {
         base.Enter();
+
+        isFirstAttack = true;
 
         enemy.anim.SetBool("Aim", true);
         weaponManager.WeaponAim(true);
@@ -27,7 +31,10 @@ public class AttackLeaf : Leaf
 
         enemy.aimTarget.position = enemy.perception.firePosition;
 
-        enemy.weaponManager.WeaponFire(0);
+        if (!isFirstAttack) //刚进入Attack先瞄准，第二次进入才能开枪
+            enemy.weaponManager.WeaponFire(0);
+
+        isFirstAttack = false;
 
         return NodeState.Running;
     }

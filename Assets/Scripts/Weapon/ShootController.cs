@@ -15,8 +15,6 @@ public class ShootController
         bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
 
         bullet.Init(shootDirection);
-
-        AudioManager.instance.PlayEvent("Play_Handgun_Fire", gunTransform.gameObject);
     }
 
     //开火时玩家移动或持续开火大于10发弹道出现偏移，两个条件同时触发偏移*2

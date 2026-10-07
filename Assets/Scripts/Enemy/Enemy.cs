@@ -51,13 +51,14 @@ public class Enemy : Entity
         var searchRight = new SearchLeaf("SearchRight", this, 120, 360f);
 
         var patrol = new PatrolLeaf("Patrol", this);
+        var wait = new WaitLeaf("Wait", this, 1f, 4f);
 
 
-        var rootSelector = new SelectorNode("Root", 0f);
+        var rootSelector = new SelectorNode("Root");
         var combatSelector = new SelectorNode("Combat", 1f);
-        var attackSequence = new SequenceNode("Attack", 1f);
-        var investigateSelector = new SelectorNode("Investigate", 0f);
-        var searchSelector = new SelectorNode("Search", 0f);
+        var attackSequence = new SequenceNode("Attack", 0.5f);
+        var investigateSelector = new SelectorNode("Investigate");
+        var searchSelector = new SelectorNode("Search");
         var patrolSequence = new SequenceNode("Patrol");
 
         attackSequence.AddChild(canSeePlayer);
@@ -73,6 +74,8 @@ public class Enemy : Entity
         combatSelector.AddChild(investigateSelector);
 
         patrolSequence.AddChild(patrol);
+        patrolSequence.AddChild(wait);
+        
 
         rootSelector.AddChild(combatSelector);
         rootSelector.AddChild(patrolSequence);

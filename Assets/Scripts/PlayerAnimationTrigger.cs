@@ -46,6 +46,21 @@ public class PlayerAnimationTrigger : MonoBehaviour
         entity.weaponManager.canLeftIK = true;
         entity.weaponManager.DoneReload();
     }
+
+    public void OnReloadPlayReloadUnload()
+    {
+        AudioManager.instance.PlayEvent("Play_Reload_Unload", gameObject);
+    }
+
+    public void OnReloadPlayReloadInstall()
+    {
+        AudioManager.instance.PlayEvent("Play_Reload_Install", gameObject);
+    }
+
+    public void OnReloadPlayReloadChamber()
+    {
+        AudioManager.instance.PlayEvent("Play_Reload_Chamber", gameObject);
+    }
     #endregion
 
     public void EndLeftIK()

@@ -16,9 +16,8 @@
 │
 └── Combat Selector 1f
 │   │
-│   ├── Attack Sequence 1f
+│   ├── Attack Sequence 0.5f
 │   │   ├── CanSeePlayer
-|   |   ├── AimPlayer --未完成
 |   |   ├── Attack  --update里会判断canSeePlayer和弹匣是否还有子弹
 |   |
 |   ├── Reload
@@ -34,6 +33,5 @@
 │
 └── Patrol Sequence
     │
-    └── Sequence
-        ├── MoveToPatrolPoint
-        └── Wait --未完成
+    ├── MoveToPatrolPoint
+    └── Wait

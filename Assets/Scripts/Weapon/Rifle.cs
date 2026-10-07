@@ -33,6 +33,7 @@ public class Rifle : Gun
         if (currentMagazineSize > 0 && fireTime > LuaManager.instance.rifleTab.Get<float>("fireInterval"))
         {
             shootController.Fire(entity, moveSpeed, fireCount, muzzleTransform, cam, maxAngleDeg);
+            AudioManager.instance.PlayEvent("Play_Rifle_Fire", gameObject);
 
             currentMagazineSize--;
             fireTime = 0;

@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Magazine : MonoBehaviour
 {
     protected Rigidbody rb;
+
+    protected bool canReturn;
 
     protected virtual void Start()
     {
@@ -16,6 +16,8 @@ public class Magazine : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (canReturn)
+            StartCoroutine(Return());
     }
 
     //令弹匣跟随左手
@@ -25,7 +27,7 @@ public class Magazine : MonoBehaviour
             return;
 
         transform.parent = _transform;
-        transform.localPosition = Vector3.zero; 
+        transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
     }
 
@@ -35,6 +37,8 @@ public class Magazine : MonoBehaviour
         rb.isKinematic = false;
 
         transform.SetParent(null);
+
+        canReturn = true;
     }
 
     //安装弹匣
@@ -47,5 +51,11 @@ public class Magazine : MonoBehaviour
         transform.position = magazineTransform.position;
         transform.rotation = magazineTransform.rotation;
 
+    }
+
+    //
+    protected virtual IEnumerator Return()
+    {
+        yield return null;
     }
 }

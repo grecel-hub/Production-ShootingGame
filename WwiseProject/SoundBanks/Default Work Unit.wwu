@@ -13,13 +13,28 @@
 				</SoundBank>
 				<SoundBank Name="Gun_Bank" ID="{112B0B3C-8ADA-49E3-997A-64B3F5F5E1C4}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_Rifle_Fire" ID="{2907CBA5-08E9-493A-B4F0-D044F614C5AF}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Handgun_Fire" ID="{EACFA831-2958-4F1E-8096-169CF177113B}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Environment_Bank" ID="{6C1F0156-F376-4610-8015-1437E83E9CF4}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Environment_Ambiant" ID="{8B152784-583C-427E-9091-09BAD9A2975A}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Environment_Computer" ID="{A94E0E6F-AD16-44D8-A57B-F257AEBE4107}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Environment_Machin" ID="{87E36FF3-18E8-4534-9D2C-304681B18C4A}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Environment_Door" ID="{4D48FC59-A397-4C4C-B8B9-F5D30B4457B3}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Reload_Bank" ID="{128C5947-9079-4A2D-9007-8FF6BB4766EC}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Reload_Unload" ID="{6F4EE345-3DF8-4754-940F-4835E52EA560}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Reload_Chamber" ID="{8B254540-6F29-4C02-90EE-38B4016116EE}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Reload_Install" ID="{E940716C-6095-4D9F-9B1E-E874702713D4}" WorkUnitID="{7686F85F-7BD7-4086-B24A-A8E62ED4958F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
