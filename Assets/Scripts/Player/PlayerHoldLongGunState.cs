@@ -61,7 +61,10 @@ namespace Assets.Scripts.Player
                 return;
 
             if (ctx.started)
+            {
                 isFiring = true;
+                player.ExposePlayerPosition();
+            }
             else if (ctx.canceled)
             {
                 isFiring = false;
@@ -72,6 +75,10 @@ namespace Assets.Scripts.Player
         //武器换弹 --R
         public void GetPlayerReloadInput(InputAction.CallbackContext ctx)
         {
+            player.stateMachine.ChangeCameraState(player.normalState);
+
+            anim.applyRootMotion = true;
+
             player.weaponManager.Reload();
         }
     }

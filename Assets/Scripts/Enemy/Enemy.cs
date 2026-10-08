@@ -9,6 +9,7 @@ public class Enemy : Entity
     public EnemyPerception perception {  get; private set; }
     public EnemyPatrolManager patrolManager { get; private set; }
 
+    [SerializeField] private Player player;
     [SerializeField] private Gun equipingGun;
     public Transform aimStart;
 
@@ -88,8 +89,14 @@ public class Enemy : Entity
     {
         base.Update();
 
+        if (isDead)
+            return;
+
         if (perception.canSeePlayer)
             RotateToTarget(perception.firePosition);
+
+        if (CheckPlayerFire())
+            RotateToTarget(perception.GetPlayerHidePosition());
 
         if (equipingGun.gunType == GunType.Long)
             anim.SetBool("HoldLongGun", true);
@@ -155,6 +162,15 @@ public class Enemy : Entity
 
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, 0.1f);
         anim.SetFloat("Speed", currentSpeed);
+    }
+
+    //检测玩家开枪
+    public bool CheckPlayerFire()
+    {
+        if (player.isExpose)
+            return true;
+
+        return false;
     }
 
 

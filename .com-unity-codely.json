@@ -1,10 +1,10 @@
 {
-  "unity_port": -1,
-  "stream_port": 51452,
+  "unity_port": 50601,
+  "stream_port": 50627,
   "created_date": "2026-08-23T10:01:00.300Z",
   "project_path": "D:/job/Unity/OverlookShootingGame/Assets",
   "reloading": false,
-  "reason": "unity_quit",
-  "seq": 29537,
-  "last_heartbeat": "2026-10-07T11:38:32.688Z"
+  "reason": "ready",
+  "seq": 1914,
+  "last_heartbeat": "2026-10-08T09:38:42.335Z"
 }

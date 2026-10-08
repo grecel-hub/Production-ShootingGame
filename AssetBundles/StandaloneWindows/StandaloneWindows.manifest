@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1269673679
+CRC: 2281039858
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -32,4 +32,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_7:
       Name: mesh
+      Dependencies: {}
+    Info_8:
+      Name: lua
       Dependencies: {}

@@ -29,7 +29,7 @@ public class SearchLeaf : Leaf
 
     protected override NodeState Update()
     {
-        if (perception.playerPosition == Vector3.zero)
+        if (perception.playerPosition == Vector3.zero || enemy.CheckPlayerFire())
             return NodeState.Failure;
 
         if (perception.canSeePlayer == true)

@@ -22,7 +22,12 @@ public class NamePoint : MonoBehaviour
         if (player.weaponManager.GetPickGun() != null)
         {
             textMeshPro.enabled = true;
-            textMeshPro.text = player.weaponManager.GetPickGun().name;
+
+            if (player.weaponManager.GetPickGun().gunType == GunType.Short)
+                textMeshPro.text = "Handgun";
+
+            if (player.weaponManager.GetPickGun().gunType == GunType.Long)
+                textMeshPro.text = "Rifle";
 
             transform.position = player.weaponManager.GetPickGun().transform.position;
             transform.rotation = Camera.main.transform.rotation;

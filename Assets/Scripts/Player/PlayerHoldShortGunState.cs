@@ -42,12 +42,18 @@ namespace Assets.Scripts.Player
             if (isRuning || player.weaponManager.currentHaveGun == null || isAim == false)
                 return;
 
+            player.ExposePlayerPosition();
+
             player.weaponManager.WeaponFire(anim.GetFloat("Speed"));
         }
 
         //武器换弹 --R
         public void GetPlayerReloadInput(InputAction.CallbackContext ctx)
         {
+            player.stateMachine.ChangeCameraState(player.normalState);
+
+            anim.applyRootMotion = true;
+
             player.weaponManager.Reload();
         }
     }

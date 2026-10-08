@@ -136,6 +136,9 @@ namespace BehaviorTree
         public override NodeState Process()
         {
             NodeState state = NodeState.Failure;
+
+            if (enemy.isDead)
+                return state;
             
             if (isEnter)
             {

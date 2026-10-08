@@ -18,7 +18,10 @@ public class Player : Entity
     public bool canSwitchDoor;
     public DoorKit doorKit;
 
-    
+
+    public bool isExpose {  get; private set; }
+    private float exposeTimer;
+
     public PlayerControls controls { get; private set; }
 
     //状态
@@ -47,14 +50,18 @@ public class Player : Entity
 
         cam = Camera.main;
 
-        
-
         stateMachine.Initialize(noGunState, normalState);
     }
 
     protected override void Update()
     {
         base.Update();
+
+        exposeTimer += Time.deltaTime;
+
+        //暴露超过4秒取消暴露
+        if (exposeTimer > 4)
+            isExpose = false;
 
         stateMachine.currentState.Update();
         stateMachine.currentCameraState.Update();
@@ -122,4 +129,11 @@ public class Player : Entity
         doorKit = _doorKit;
     }
 
+    //暴露玩家位置
+    public void ExposePlayerPosition()
+    {
+        isExpose = true;
+
+        exposeTimer = 0;
+    }
 }

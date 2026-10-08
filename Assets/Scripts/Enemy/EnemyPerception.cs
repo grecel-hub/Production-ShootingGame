@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPerception : MonoBehaviour
 {
     public float viewDistance = 15f;
-    public float viewAngle = 120f;
+    public float viewAngle = 180f;
     public LayerMask targetMask;
 
     [SerializeField] private Player player;
@@ -58,5 +58,10 @@ public class EnemyPerception : MonoBehaviour
                 }
             }
         }
+    }
+
+    public Vector3 GetPlayerHidePosition()
+    {
+        return player.transform.position;
     }
 }

@@ -1,10 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
-using UnityEngine.U2D;
-using UnityEngine.UI;
 
 //武器管理
 public class WeaponManager : MonoBehaviour
@@ -316,14 +313,11 @@ public class WeaponManager : MonoBehaviour
     //左手IK吸附枪托
     private void LeftHandIkWait(bool isHoldGun)
     {
-        if (isReloading)
-            return;
-
         if (isHoldGun)
         {
             weaponAimElapsed += Time.deltaTime;
 
-            if (weaponAimElapsed >= 0.2f)
+            if (weaponAimElapsed >= 0.25f)
             {
                 leftHandIk.weight = 1;
             }
@@ -339,9 +333,6 @@ public class WeaponManager : MonoBehaviour
     private void RightArmConstraintWait(bool isAim)
     {
         if (!gameObject.CompareTag("Player"))
-            return;
-
-        if (isReloading)
             return;
 
         if (isAim)

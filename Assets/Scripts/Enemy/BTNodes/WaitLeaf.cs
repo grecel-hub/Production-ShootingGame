@@ -34,7 +34,7 @@ public class WaitLeaf : Leaf
     {
         timer += Time.deltaTime;
 
-        if (perception.canSeePlayer)
+        if (perception.canSeePlayer || enemy.CheckPlayerFire())
             return NodeState.Failure;
 
         if (timer >= waitTime)

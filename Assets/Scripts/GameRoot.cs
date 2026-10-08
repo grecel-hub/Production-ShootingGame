@@ -9,11 +9,10 @@ public class GameRoot : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        LuaManager.CreateInstance();
         AssetBundleManager.CreateInstance();
+        LuaManager.CreateInstance();
         AudioManager.CreateInstance();
 
-        Debug.Log("初始化manager脚本");
         AudioManager.instance.InitAsync().Forget();
     }
 

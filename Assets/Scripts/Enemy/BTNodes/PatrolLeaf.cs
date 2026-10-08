@@ -24,7 +24,7 @@ public class PatrolLeaf : Leaf
 
     protected override NodeState Update()
     {
-        if (perception.canSeePlayer)
+        if (perception.canSeePlayer || enemy.CheckPlayerFire())
             return NodeState.Failure;
 
         if (enemy.ReachedDesination()) //到达巡逻点

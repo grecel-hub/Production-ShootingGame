@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using UnityEngine;
 using XLua;
 
@@ -7,7 +6,7 @@ public class LuaManager
 {
     public static LuaManager instance { get; private set; }
 
-    public LuaEnv luaEnv {  get; private set; }
+    public LuaEnv luaEnv { get; private set; }
 
 
     //手枪Lua脚本使用
@@ -15,12 +14,12 @@ public class LuaManager
     public Func<float, float> getHandgunRecoil { get; private set; }
 
     //步枪Lua脚本使用后
-    public LuaTable rifleTab { get; private set;  }
+    public LuaTable rifleTab { get; private set; }
     public Func<float, float> getRifleRecoil { get; private set; }
 
     //子弹Lua脚本使用
-    public LuaTable bulletTab {  get; private set; }
-    public Func<int, int> getDamage { get; private set;  }
+    public LuaTable bulletTab { get; private set; }
+    public Func<int, int> getDamage { get; private set; }
     public Func<float, Vector3> getFireDirection { get; private set; }
 
     private LuaManager() { }
@@ -39,13 +38,15 @@ public class LuaManager
 
         luaEnv.AddLoader((ref string filepath) =>
         {
-            string path = Path.Combine(Application.dataPath, "Lua", filepath + ".lua");
-            if (File.Exists(path))
-            {
-                Debug.Log(filepath + "Lua脚本读取成功");
+            TextAsset luaAsset = AssetBundleManager.instance.LoadRes<TextAsset>("lua", filepath + ".txt");
 
-                return File.ReadAllBytes(path);
+            if (luaAsset != null)
+            {
+                Debug.Log(filepath + ".txt脚本读取成功");
+
+                return luaAsset.bytes;
             }
+
             Debug.Log(filepath + "读取失败");
             return null;
         });
@@ -53,7 +54,7 @@ public class LuaManager
         LuaDoString();
         LuaRegister();
 
-        
+
     }
 
     private void LuaDoString()
@@ -66,7 +67,7 @@ public class LuaManager
     public void LuaRegister()
     {
         handgunTab = luaEnv.Global.Get<LuaTable>("Handgun");
-        getHandgunRecoil = handgunTab.Get<Func<float, float>>("GetRecoil"); 
+        getHandgunRecoil = handgunTab.Get<Func<float, float>>("GetRecoil");
 
         rifleTab = luaEnv.Global.Get<LuaTable>("Rifle");
         getRifleRecoil = rifleTab.Get<Func<float, float>>("GetRecoil");

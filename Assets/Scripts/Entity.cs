@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
     public WeaponManager weaponManager { get; private set; }
 
 
-    protected int health = 1000;
+    protected int health = 100;
 
     public bool isDead;
     public bool canDie = true;
