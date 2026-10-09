@@ -1,29 +1,131 @@
-# Production-ShootingGame
-求职作品-射击类
+# OverlookShootingGame · 第三人称射击游戏 Demo
 
+> 求职作品 —— 一款基于 Unity 引擎开发的第三人称射击游戏 Demo，完整实现了玩家操控、武器系统、敌人 AI、音频、资源管理与 Lua 热更等核心玩法模块。
 
+---
 
-//敌人AI行为树
-    Root Selector
-│
-└── Combat Selector 1f
-│   │
-│   ├── Attack Sequence 0.5f
-│   │   ├── CanSeePlayer
-|   |   ├── Attack  --update里会判断canSeePlayer和弹匣是否还有子弹
-|   |
-|   ├── Reload
-│   │
-│   └── Investigate Selector -0f
-|       ├── Chase    --前往玩家上次出现位置，中途发现玩家Success回到Combat Selector，没有发现玩家到达目的地后Failure，前往下一个子节点Search Selector
-|       |
-|       ├── Search Selector -0f
-|           ├──SearchLeaf   --向左扫视，发现玩家Success，回到Combat Selector，扫视结束Failure，前往下一个子节点SearchRight
-|           ├──SearchRight  --向右扫视，发现玩家Success，回到Combat Selector，扫视结束Failure，回到Root Selector，前往下一个子节点Patrol
-│           
-│
-│
-└── Patrol Sequence
-    │
-    ├── MoveToPatrolPoint
-    └── Wait
+## 项目简介
+
+这是一款第三人称射击游戏原型，玩家在科幻场景中探索、拾取武器并与具备自主行为的 AI 敌人交战。项目围绕「手感」与「工程结构」两个方向打磨：
+
+- **战斗手感**：武器散射、后坐力、换弹流程（含空挂换弹）、部位伤害、IK 持枪姿态均经过专门设计。
+- **工程结构**：采用状态机、行为树、对象池、管理器单例等常见游戏架构模式组织代码，并引入 Lua 脚本做数值热更，便于后期快速迭代调参。
+
+---
+
+## 核心玩法
+
+| 模块 | 说明 |
+|------|------|
+| 角色操控 | 第三人称视角移动、奔跑、瞄准、开火、换弹、拾取、交互 |
+| 武器系统 | 手枪 / 步枪两类武器，弹匣管理、换弹生命周期、散射与后坐力表现 |
+| 部位伤害 | 按命中部位（头部 / 躯干 / 四肢）区分伤害数值 |
+| 敌人 AI | 具备「发现 → 攻击 → 追击 → 搜索 → 巡逻」完整行为链的智能敌人 |
+| 环境交互 | 可开关的门、环境音效等场景物件 |
+| UI | 弹药显示（自动淡出）、可拾取武器提示 |
+
+---
+
+## 技术栈
+
+**引擎与语言**
+- Unity（URP 渲染管线）
+- C#
+- Lua（XLua 热更）
+
+**游戏框架 / 架构**
+- 自定义行为树（Behavior Tree）— 敌人 AI
+- 有限状态机（FSM）— 玩家移动 / 相机双线状态管理
+- 对象池（Object Pool）— 子弹、枪口火光、弹匣复用
+- 管理器单例 — `GameRoot` / `AudioManager` / `AssetBundleManager` / `LuaManager`
+
+**第三方插件**
+- **Wwise** — 专业游戏音频中间件（Bank 动态加载、事件触发）
+- **Cinemachine** — 第三人称自由视角相机
+- **Unity Animation Rigging** — IK 持枪 / 瞄准约束
+- **UniTask** — 异步资源加载
+- **DOTween** — UI 与物件动画（如开关门）
+- **Unity Input System** — 新版输入系统（支持键鼠 / 手柄 / 触摸 / XR）
+- **NavMesh Agent** — AI 寻路
+- **TextMesh Pro** — 文字渲染
+- **AssetBundle** — 资源打包与运行时加载
+
+---
+
+## 系统设计亮点
+
+### 1. 敌人 AI —— 手写行为树
+
+敌人使用自定义实现的行为树，复合节点（Selector / Sequence）带「思考时间」机制，避免逐帧反复切换行为：
+
+```
+Root Selector
+├── Combat Selector（战斗状态）
+│   ├── Attack Sequence（看见玩家 → 攻击）
+│   ├── Reload（换弹）
+│   └── Investigate Selector（侦查状态）
+│       ├── Chase（追向玩家最后出现位置）
+│       └── Search Selector
+│           ├── SearchLeft（向左扫视）
+│           └── SearchRight（向右扫视）
+└── Patrol Sequence（巡逻状态）
+    ├── Patrol（前往巡逻点）
+    └── Wait（到达后停留）
+```
+
+敌人通过 `EnemyPerception` 感知系统判断是否发现玩家：综合**距离、视野角度、多层高度射线遮挡检测**三重判定，并能在丢失视野后追踪玩家最后出现的位置。
+
+### 2. 玩家状态机
+
+玩家状态采用**双状态机**设计，将「移动状态」与「相机状态」解耦：
+
+- 移动状态：`NoGun` / `HoldShortGun` / `HoldLongGun` / `Aim`
+- 相机状态：`Normal` / `Camera` / `Aim`
+
+两者独立切换，使「换弹时切换相机」等操作无需牵连移动逻辑。
+
+### 3. Lua 热更数值配置
+
+武器数值、后坐力曲线、子弹散射、部位伤害全部由 Lua 脚本配置，通过 XLua 在运行时加载：
+
+- **武器数据**：弹容量、开火间隔、散射角度、后坐力力度、瞄准偏移
+- **后坐力曲线**：使用 smoothstep 平滑插值，模拟「快速上抬 → 缓慢回落」
+- **子弹散射**：在圆锥体内均匀随机采样的射击方向
+- **部位伤害**：按命中层（头 / 躯干 / 四肢）返回对应伤害值
+
+修改 Lua 脚本无需重新编译 C# 代码，即可实时调整战斗手感。
+
+### 4. 武器与换弹流程
+
+完整的换弹生命周期（支持**空挂换弹**，即弹匣打空后需额外上膛动作）：卸载弹匣 → 取出新弹匣 → 安装弹匣 → 上膛。弹匣掉落与回收、枪口复位、后坐力（骨骼 + 相机双重表现）等细节均有处理。
+
+### 5. 音频系统（Wwise）
+
+音频 Bank 通过 AssetBundle 异步加载，事件由 `AkSoundEngine.PostEvent` 触发，覆盖环境音、脚步声（区分走 / 跑）、枪声、换弹音效等。
+
+### 6. 资源管理
+
+自研 `AssetBundleManager`，支持主包与依赖包自动加载、同步 / 异步加载、卸载，并按平台（iOS / Android / Windows）区分资源路径。对象池中的预制体同样通过 AssetBundle 异步加载。
+
+---
+
+## 操作说明
+
+| 按键 | 功能 |
+|------|------|
+| `W` `A` `S` `D` | 移动 |
+| `左 Shift` | 奔跑 |
+| 鼠标移动 | 视角 |
+| 鼠标右键 | 瞄准 |
+| 鼠标左键 | 开火 |
+| `R` | 换弹 |
+| `F` | 拾取武器 |
+| `E` | 开门 |
+
+---
+
+## 如何运行
+
+1. 使用 Unity Hub 以 **2022.3.62f2c1**（或 2022.3 LTS）版本打开本项目。
+2. 确认 Build Target 为 **Windows**（资源包已按 Windows 平台打包提交）。
+3. 打开 `Example_01` 场景，点击 Play 即可运行。
